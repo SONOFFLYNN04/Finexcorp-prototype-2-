@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Ze MODEL",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Finexcorp_SVG_Animation",
+		"liveServer.settings.port": 5502
+	}
+}

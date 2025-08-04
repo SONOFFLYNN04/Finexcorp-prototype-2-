@@ -1,15 +1,19 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: [
+    "./*.html",
+    "./pages/**/*.html",
+    "./src/**/*.{js,ts,jsx,tsx,html}"
+  ],
   theme: {
-    screen: {
-      sm:"480px",
-      md:"768px",
-      lg:"976px",
-      xl:"1440px"
-    }, extend: {
-
-      colors : {
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px"
+    },
+    extend: {
+      colors: {
         brightRed: "hsl(12,88%, 59%)",
         brightRedLight: "hsl(12, 88%, 69%)",
         brightRedSupLight: "hsl(12, 88%, 95%)",
@@ -27,11 +31,19 @@ export default {
         finBleufonce: "#0F3A6A",
         finBleupale: "#29548A",
         finGold: "#D4AF37",
+        white: "#FFFFFF",
         
-        
-
-      }
+      },
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        sans: ['system-ui', 'sans-serif'],
+        body: ['"Open Sans"', 'sans-serif'],
+        header: ["Playfair Display", "serif"],
+      },
     },
-   },
+  },
   plugins: [],
 }
+
+
+
