@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../my-site"
-		},
-		{
-			"path": "../cestlebon"
 		}
 	],
 	"settings": {
