@@ -3,11 +3,15 @@ name: Deploy Vite site to GitHub Pages
 on:
   push:
     branches:
-      - main  # Déclenche le déploiement à chaque push sur la branche main
+      - main  # Déclenche le workflow à chaque push sur main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Important : donne les droits d'écriture pour pousser sur gh-pages
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -26,5 +30,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: dist
+            
