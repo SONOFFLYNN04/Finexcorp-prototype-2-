@@ -9,16 +9,6 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
 
-
-<!--Hamburger Menu -->
-
-
-
-
-
-
-
-
 <!--Underline-->
 <style>
   
@@ -97,7 +87,12 @@ button:hover::before, a:hover::before {
 
 
 </head>
-<body class=" font-sans bg-white text-gray-800">
+
+
+
+
+
+<body class=" font-sans bg-gradient-to-br from-white via-finGold/10 to-finBleufonce text-gray-800">
   <!-- Navbar -->
   <nav class="relative container border-b border-finGold mx-auto py-2 font-serif ">
     <div class="flex items-center justify-between">
@@ -113,7 +108,7 @@ button:hover::before, a:hover::before {
 
       </div>
       <!-- CTA -->
-      <a href="contact.html" class="hidden md:block px-4 p-2 py-[30px] text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50">
+      <a href="contact.html" class="hidden md:block px-4 p-2 text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50">
         Contactez-nous
       </a>
       <!-- Hamburger -->
@@ -135,9 +130,113 @@ button:hover::before, a:hover::before {
     </div>
   </nav>
 
+
+
+
+  <!-- HERO -->
+  <section class="relative text-center py-20">
+    <h1 class="text-4xl md:text-5xl font-header text-finGold" data-aos="fade-down">Un partenaire à votre écoute</h1>
+    <p class="mt-4 text-lg text-finBleufonce max-w-2xl mx-auto" data-aos="fade-up">
+      Prenez contact avec nous dès aujourd’hui et découvrez comment <span class="font-semibold text-finGold">Finexcorp</span> peut soutenir votre croissance.
+    </p>
+  </section>
+
+
+  <!-- COORDONNÉES -->
+  <section class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-white border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in">
+      <div class="text-finGold text-4xl mb-4">📞</div>
+      <h3 class="font-header text-xl text-finBleufonce mb-2">Téléphone</h3>
+      <p class="text-gray-600">+1 (514) 123-4567</p>
+    </div>
+    <div class="bg-white border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="100">
+      <div class="text-finGold text-4xl mb-4">✉️</div>
+      <h3 class="font-header text-xl text-finBleufonce mb-2">Courriel</h3>
+      <p class="text-gray-600">contact@finexcorp.ca</p>
+    </div>
+    <div class="bg-white border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
+      <div class="text-finGold text-4xl mb-4">📍</div>
+      <h3 class="font-header text-xl text-finBleufonce mb-2">Adresse</h3>
+      <p class="text-gray-600">123 Rue du Financement, Montréal, QC</p>
+    </div>
+  </section>
+
+
+
+  <!-- FORMULAIRE -->
+  <section class="py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-header text-finBleufonce text-center mb-12" data-aos="fade-up">Écrivez-nous</h2>
+    <form class="bg-white rounded-lg shadow-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-0 border border-finGold divide-y md:divide-y-0 md:divide-x divide-gray-200" data-aos="fade-up" data-aos-delay="200">
+      
+      <!-- Nom -->
+      <div class="p-4">
+        <input type="text" placeholder="Nom complet" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+      </div>
+
+      <!-- Entreprise (menu déroulant) -->
+      <div class="p-4">
+        <select class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700 bg-white">
+          <option value="">Secteur d'activité</option>
+          <option value="construction">Construction</option>
+          <option value="paysagement">Paysagement</option>
+          <option value="papier">Pâtes et papiers</option>
+          <option value="transport">Transport</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+
+      <!-- Courriel -->
+      <div class="p-4">
+        <input type="email" placeholder="Courriel" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+      </div>
+
+      <!-- Téléphone -->
+      <div class="p-4">
+        <input type="tel" placeholder="Téléphone" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+      </div>
+
+      <!-- Sujet -->
+      <div class="p-4 md:col-span-2 border-t md:border-t-0">
+        <input type="text" placeholder="Sujet" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+      </div>
+
+      <!-- Message -->
+      <div class="p-4 md:col-span-2 border-t">
+        <textarea placeholder="Votre message" rows="5" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"></textarea>
+      </div>
+
+
+
+
+
+      
+
+      <!-- Bouton -->
+      <div class="p-4 md:col-span-2">
+       <button id="submitBtn" type="submit" class="relative w-full bg-finBleufonce text-finGold font-bold py-3 rounded-full hover:bg-finGold hover:text-finBleufonce transition shadow-lg shadow-yellow-500/50 overflow-hidden">
+         Envoyer mon message
+         <span class="absolute inset-0 bg-finGold opacity-0 scale-0 rounded-full transition-transform duration-300 ease-out" id="clickEffect"></span>
+       </button>
+     </div>
+    </form>
+    <div id="confirmationMessage" class="mt-6 text-center text-finBleufonce text-xl font-semibold opacity-0 transition-opacity duration-500">
+      Votre message a été envoyé avec succès !
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+
+
+
   
 
 
+
+  
   <!-- Footer -->
   <footer class="bg-white text-finGold py-8">
   <div class="container mx-auto text-center">
@@ -153,8 +252,7 @@ button:hover::before, a:hover::before {
 
       
       
-    </div>
-  </footer>
+    
 
 
 
@@ -170,6 +268,28 @@ button:hover::before, a:hover::before {
   });
 </script>
 
+
+<!-- Message de confirmation -->
+ <script>
+  // Animation bouton clic
+  const btn = document.getElementById('submitBtn');
+  const clickEffect = document.getElementById('clickEffect');
+  btn.addEventListener('click', function (e) {
+    e.preventDefault(); 
+    clickEffect.style.opacity = "0.3";
+    clickEffect.style.transform = "scale(4)";
+    setTimeout(() => {
+      clickEffect.style.opacity = "0";
+      clickEffect.style.transform = "scale(0)";
+    }, 300);
+ // Afficher le message de confirmation
+    const confirmation = document.getElementById('confirmationMessage');
+    confirmation.style.opacity = "1";
+    setTimeout(() => {
+      confirmation.style.opacity = "0";
+    }, 4000);
+  });
+  </script>
 
   
 
