@@ -164,17 +164,19 @@ button:hover::before, a:hover::before {
     <div class="contact-card border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in">
       <div class="text-finGold text-4xl mb-4">📞</div>
       <h3 class="font-header text-xl text-finBleufonce mb-2">Téléphone</h3>
-      <p class="text-gray-600">+1 (514) 123-4567</p>
+      <p class="text-gray-600">+1 (418) 905-0576</p>
     </div>
     <div class="contact-card border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="100">
       <div class="text-finGold text-4xl mb-4">✉️</div>
       <h3 class="font-header text-xl text-finBleufonce mb-2">Courriel</h3>
-      <p class="text-gray-600">contact@finexcorp.ca</p>
+      <p class="text-gray-600">info@finexcorp.ca</p>
     </div>
     <div class="contact-card border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
       <div class="text-finGold text-4xl mb-4">📍</div>
       <h3 class="font-header text-xl text-finBleufonce mb-2">Adresse</h3>
-      <p class="text-gray-600">123 Rue du Financement, Montréal, QC</p>
+      <p class="text-gray-600">1190-B Rue de Courchevel, 
+        <br>
+        Suite 400, Lévis, QC</p>
     </div>
   </section>
 
@@ -184,72 +186,80 @@ button:hover::before, a:hover::before {
   <section class="py-16">
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-header text-finBleufonce text-center mb-12" data-aos="fade-up">Écrivez-nous</h2>
-    <form class="bg-white rounded-lg shadow-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-0 border border-finGold divide-y md:divide-y-0 md:divide-x divide-gray-200" data-aos="fade-up" data-aos-delay="200">
-      
-      <!-- Nom -->
-      <div class="p-4">
-        <input type="text" placeholder="Nom complet" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-      </div>
+    <form action="https://formspree.io/f/xzzvqlyq" method="post" class="bg-white rounded-lg shadow-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-0 border border-finGold divide-y md:divide-y-0 md:divide-x divide-gray-200" data-aos="fade-up" data-aos-delay="200"
+      id="contactForm"
+      action="https://formspree.io/f/xzzvqlyq"
+      method="POST"
+      data-aos="fade-up" data-aos-delay="200">
 
-      <!-- Entreprise (menu déroulant) -->
-      <div class="p-4">
-        <select class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700 bg-white">
-          <option value="">Secteur d'activité</option>
-          <option value="construction">Construction</option>
-          <option value="paysagement">Paysagement</option>
-          <option value="papier">Pâtes et papiers</option>
-          <option value="transport">Transport</option>
-          <option value="autre">Autre</option>
-        </select>
-      </div>
-
-      <!-- Courriel -->
-      <div class="p-4">
-        <input type="email" placeholder="Courriel" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-      </div>
-
-      <!-- Téléphone -->
-      <div class="p-4">
-        <input type="tel" placeholder="Téléphone" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-      </div>
-
-      <!-- Sujet -->
-      <div class="p-4 md:col-span-2 border-t md:border-t-0">
-        <input type="text" placeholder="Sujet" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-      </div>
-
-      <!-- Message -->
-      <div class="p-4 md:col-span-2 border-t">
-        <textarea placeholder="Votre message" rows="5" class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"></textarea>
-      </div>
-
-
-
-
-
-      
-
-      <!-- Bouton -->
-      <div class="p-4 md:col-span-2">
-       <button id="submitBtn" type="submit" class="relative w-full bg-finBleufonce text-finGold font-bold py-3 rounded-full hover:bg-finGold hover:text-finBleufonce transition shadow-lg shadow-yellow-500/50 overflow-hidden">
-         Envoyer mon message
-         <span class="absolute inset-0 bg-finGold opacity-0 scale-0 rounded-full transition-transform duration-300 ease-out" id="clickEffect"></span>
-       </button>
-     </div>
-    </form>
-    <div id="confirmationMessage" class="mt-6 text-center text-finBleufonce text-xl font-semibold opacity-0 transition-opacity duration-500">
-      Votre message a été envoyé avec succès !
-    </div>
+  <!-- Nom -->
+  <div class="p-4">
+    <input type="text" name="nom" placeholder="Nom complet" required
+           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
   </div>
+
+  <!-- Entreprise (menu déroulant) -->
+  <div class="p-4">
+    <select name="secteur" required
+            class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700 bg-white">
+      <option value="">Secteur d'activité</option>
+      <option value="industriels">Industriels</option>
+      <option value="transformations">Transformations</option>
+      <option value="transport">Transport</option>
+      <option value="autres">Autres</option>
+    </select>
   </div>
-</section>
 
+  <!-- Courriel -->
+  <div class="p-4">
+    <input type="email" name="email" placeholder="Courriel" required
+           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+  </div>
 
+  <!-- Téléphone -->
+  <div class="p-4">
+    <input type="tel" name="telephone" placeholder="Téléphone"
+           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+  </div>
 
+  <!-- Sujet -->
+  <div class="p-4 md:col-span-2 border-t md:border-t-0">
+    <input type="text" name="sujet" placeholder="Sujet" required
+           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
+  </div>
 
+  <!-- Message -->
+  <div class="p-4 md:col-span-2 border-t">
+    <textarea name="message" placeholder="Votre message" rows="5" required
+              class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"></textarea>
+  </div>
 
+  <!-- Bouton -->
+  <div class="p-4 md:col-span-2">
+    <button id="submitBtn" type="submit"
+            class="relative w-full bg-finBleufonce text-finGold font-bold py-3 rounded-full hover:bg-finGold hover:text-finBleufonce transition shadow-lg shadow-yellow-500/50 overflow-hidden">
+      Envoyer mon message
+      <span class="absolute inset-0 bg-finGold opacity-0 scale-0 rounded-full transition-transform duration-300 ease-out" id="clickEffect"></span>
+    </button>
+  </div>
 
-  
+  <!-- (Optionnel) anti-spam honeypot invisible -->
+  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+  <!-- (Optionnel) sujet d’email côté Formspree -->
+  <input type="hidden" name="_subject" value="Nouveau message du site Finexcorp">
+</form>
+
+<!-- Message de confirmation (déjà sur ta page) -->
+<div id="confirmationMessage"
+     class="mt-6 text-center text-finBleufonce text-xl font-semibold opacity-0 transition-opacity duration-500"
+     aria-live="polite">
+  Votre message a été envoyé avec succès !
+</div>
+
+<!-- Zone d’erreur discrète -->
+<div id="errorMessage"
+     class="mt-4 text-center text-red-600 text-base opacity-0 transition-opacity duration-300">
+</div>
 
 
 
@@ -270,7 +280,71 @@ button:hover::before, a:hover::before {
       
     
 
+<!-- Script pour le formulaire de contact-->
 
+<script>
+  (function () {
+    const form = document.getElementById('contactForm');
+    const confirmEl = document.getElementById('confirmationMessage');
+    const errorEl = document.getElementById('errorMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function show(el) {
+      el.classList.remove('opacity-0');
+    }
+    function hide(el) {
+      el.classList.add('opacity-0');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hide(confirmEl);
+      hide(errorEl);
+
+      // Désactivation & état "envoi…"
+      const originalText = submitBtn.textContent.trim();
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      submitBtn.textContent = 'Envoi en cours…';
+
+      try {
+        const formData = new FormData(form);
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          show(confirmEl);
+          hide(errorEl);
+          // Optionnel: masquer l’alerte au bout de 6s
+          setTimeout(() => hide(confirmEl), 6000);
+        } else {
+          // Tenter de lire le message d’erreur Formspree
+          let msg = "Une erreur est survenue. Réessayez dans un instant.";
+          try {
+            const data = await res.json();
+            if (data && data.errors && data.errors.length) {
+              msg = data.errors.map(e => e.message).join(' ');
+            }
+          } catch(_) {}
+          errorEl.textContent = msg;
+          show(errorEl);
+        }
+      } catch (err) {
+        errorEl.textContent = "Impossible d'envoyer le message (connexion).";
+        show(errorEl);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+        submitBtn.textContent = originalText;
+      }
+    });
+  })();
+</script>
 
 
   <!--Hambuger Menu Script-->

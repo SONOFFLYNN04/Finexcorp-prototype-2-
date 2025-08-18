@@ -31,7 +31,7 @@ module.exports = {
         finBleufonce: "#0F3A6A",
         finBleupale: "#29548A",
         finGold: "#D4AF37",
-        white: "#FFFFFF",
+        white: "#F9FAFB",
         
       },
       fontFamily: {
