@@ -582,14 +582,6 @@ video {
   }
 }
 
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
 .absolute {
   position: absolute;
 }
@@ -658,6 +650,10 @@ video {
 
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
 }
 
 .mr-4 {
@@ -832,6 +828,14 @@ video {
   gap: 3rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-6 {
   gap: 1.5rem;
 }
@@ -945,6 +949,11 @@ video {
   border-top-width: 1px;
 }
 
+.border-finBleufonce {
+  --tw-border-opacity: 1;
+  border-color: rgb(15 58 106 / var(--tw-border-opacity, 1));
+}
+
 .border-finGold {
   --tw-border-opacity: 1;
   border-color: rgb(212 175 55 / var(--tw-border-opacity, 1));
@@ -975,7 +984,7 @@ video {
 
 .bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[url\(\'\/img\/quotes-bg\.png\'\)\] {
@@ -1017,8 +1026,8 @@ video {
 }
 
 .from-white {
-  --tw-gradient-from: #F9FAFB var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(249 250 251 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-from: #FFFFFF var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -1033,8 +1042,8 @@ video {
 }
 
 .via-white {
-  --tw-gradient-to: rgb(249 250 251 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #F9FAFB var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #FFFFFF var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-finBleufonce {
@@ -1050,7 +1059,7 @@ video {
 }
 
 .to-white {
-  --tw-gradient-to: #F9FAFB var(--tw-gradient-to-position);
+  --tw-gradient-to: #FFFFFF var(--tw-gradient-to-position);
 }
 
 .bg-center {
@@ -1090,6 +1099,11 @@ video {
   padding: 2rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1108,6 +1122,11 @@ video {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-12 {
@@ -1246,6 +1265,11 @@ video {
   line-height: 1.625;
 }
 
+.text-\[\#525B76\] {
+  --tw-text-opacity: 1;
+  color: rgb(82 91 118 / var(--tw-text-opacity, 1));
+}
+
 .text-finBleufonce {
   --tw-text-opacity: 1;
   color: rgb(15 58 106 / var(--tw-text-opacity, 1));
@@ -1293,7 +1317,7 @@ video {
 
 .text-white {
   --tw-text-opacity: 1;
-  color: rgb(249 250 251 / var(--tw-text-opacity, 1));
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .text-opacity-90 {
@@ -1365,6 +1389,10 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1381,12 +1409,6 @@ video {
 
 .transition-opacity {
   transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-transform {
-  transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1574,6 +1596,11 @@ body.loaded {
 .hover\:text-finGold:hover {
   --tw-text-opacity: 1;
   color: rgb(212 175 55 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:shadow-xl:hover {

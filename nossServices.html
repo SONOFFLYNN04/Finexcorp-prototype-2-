@@ -3,317 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finexcorp - Solutions de financement</title>
-  <meta name="description" content="Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.">
+  <title data-i18n="meta.title">Finexcorp - Solutions de financement</title>
+  <meta name="description" data-i18n="meta.description" content="Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.">
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="icon" href="img/faivcon.png" type="image/png">
 
-  
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-
-<!--Explosion-->
-<style>
+  <!-- Explosion (CTA) -->
+  <style>
     .particle {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #D4AF37; /* Doré */
-      opacity: 1;
-      pointer-events: none;
+      position: absolute; width: 8px; height: 8px; border-radius: 50%;
+      background: #D4AF37; opacity: 1; pointer-events: none;
       animation: explode 0.8s ease-out forwards;
     }
-
-    @keyframes explode {
-      to {
-        transform: translate(var(--x), var(--y));
-        opacity: 0;
-      }
-    }
+    @keyframes explode { to { transform: translate(var(--x), var(--y)); opacity: 0; } }
   </style>
 
+  <!-- Effet de lumière sur les boutons -->
+  <style>
+    button, a { position: relative; overflow: hidden; }
+    button::before, a::before {
+      content: ""; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%; background: rgba(255,255,255,0.2);
+      transform: rotate(25deg) translateX(-100%); transition: transform 0.5s ease;
+    }
+    button:hover::before, a:hover::before { transform: rotate(25deg) translateX(100%); }
+  </style>
 
-    <!--Effet de lumière sur les boutons-->
-  <style> button, a {
-  position: relative;
-  overflow: hidden;
-}
-button::before, a::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255,255,255,0.2);
-  transform: rotate(25deg) translateX(-100%);
-  transition: transform 0.5s ease;
-}
-button:hover::before, a:hover::before {
-  transform: rotate(25deg) translateX(100%);
-}
-</style>
+  <!-- Transitions de page -->
+  <style>
+    body { opacity: 0; transition: opacity 0.5s ease-in-out; }
+    body.loaded { opacity: 1; }
+    .fade-out { opacity: 0; transition: opacity 0.4s ease-in-out; }
+  </style>
 
-<style>
-  body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  body.loaded {
-    opacity: 1;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-</style>
-<style>
-  body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  body.loaded {
-    opacity: 1;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-</style>
+  <!-- Hover élégants sur les cartes -->
+  <style>
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 12px 30px #D4AF37; }
+  </style>
 
-<!--Hover élégants sur les cartes-->
-<style>
-    .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px #D4AF37;
-}
-</style>
+  <!-- Transition fluide entre sections -->
+  <style>
+    section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    section.appear { opacity: 1; transform: translateY(0); }
+  </style>
 
-<!--Transition fluide entre les sections-->
-<style>
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-section.appear {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-
-<!--Page active-->
-
+  <!-- Page active -->
   <style>
     .active { color: #D4AF37; border-bottom: 2px solid #D4AF37; padding-bottom: 2px; }
   </style>
-
-
-
 </head>
-<body class=" font-sans bg-white text-gray-800">
+<body class="font-sans bg-white text-gray-800">
   <!-- Navbar -->
-  <nav class="relative container border-b border-finGold mx-auto py-2 font-serif ">
+  <nav class="relative container border-b border-finGold mx-auto py-2 font-serif">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <div class="">
+      <div>
         <a href="index.html"><img src="img/zelogo.png" class="max-h-26 w-[200px]" alt="Logo Finexcorp"/></a>
       </div>
-      <!-- Menu -->
-      <div class="hidden md:flex space-x-12">
-        <a href="L'affacturage.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">L'affacturage</a>
-        <a href="PourquoiFinexcorp.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">Qui est Finexcorp ?</a>
-        <a href="nossServices.html" class="active text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">Nos Services</a>
 
+      <!-- Menu -->
+      <div class="hidden md:flex items-center space-x-6">
+        <div class="hidden md:flex space-x-12">
+          <a href="L'affacturage.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.affacturage">L'affacturage</a>
+          <a href="PourquoiFinexcorp.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.about">Qui est Finexcorp ?</a>
+          <a href="nossServices.html" class="active text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.services">Nos Services</a>
+        </div>
+        <!-- Lang Switcher (desktop) -->
+        <div class="hidden md:flex items-center gap-2 ml-6">
+          <button id="lang-fr" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce hover:bg-finBleufonce hover:text-white transition" aria-label="Français">FR</button>
+          <button id="lang-en" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce hover:bg-finBleufonce hover:text-white transition" aria-label="English">EN</button>
+        </div>
       </div>
+
       <!-- CTA -->
-      <a href="contact.html" class="hidden md:block px-4 p-2 text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50">
-        Contactez-nous
-      </a>
+      <a href="contact.html" class="hidden md:block px-4 p-2 text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50" data-i18n="nav.contact">Contactez-nous</a>
+
       <!-- Hamburger -->
-      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-        <span class="hamburger-top"></span>
-        <span class="hamburger-middle"></span>
-        <span class="hamburger-bottom"></span>
+      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none" aria-label="Menu">
+        <span class="hamburger-top"></span><span class="hamburger-middle"></span><span class="hamburger-bottom"></span>
       </button>
     </div>
+
     <!-- Mobile Menu -->
     <div class="md:hidden">
       <div id="menu" class="absolute hidden flex-col items-center self-end py-3 mt-10 space-y-6 font-bold bg-paynesTrespale left-6 right-6 drop-shadow-md">
-        <a href="index.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Accueil</a>
-        <a href="L'affacturage.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Affacturage</a>
-        <a href="PourquoiFinexcorp.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Qui est Finexcorp ?</a>
-        <a href="nossServices.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Nos Services</a>
+        <a href="index.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.home">Accueil</a>
+        <a href="L'affacturage.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.affacturage">Affacturage</a>
+        <a href="PourquoiFinexcorp.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.about">Qui est Finexcorp ?</a>
+        <a href="nossServices.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.services">Nos Services</a>
+        <!-- Lang Switcher (mobile) -->
+        <div class="flex justify-center gap-3 mt-2">
+          <button id="lang-fr-mobile" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce">FR</button>
+          <button id="lang-en-mobile" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce">EN</button>
+        </div>
       </div>
     </div>
   </nav>
 
-
-
-
-<!-- HEADER -->
+  <!-- HEADER -->
   <header class="container mx-auto py-12 text-center">
-    <h1 class="text-5xl font-serif font-bold text-finBleufonce" data-aos="fade-down">Nos Services</h1>
-    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto" data-aos="fade-up">
+    <h1 class="text-5xl font-serif font-bold text-finBleufonce" data-aos="fade-down" data-i18n="header.h1">Nos Services</h1>
+    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-i18n="header.p">
       Découvrez comment Finexcorp accompagne votre entreprise avec des solutions financières sur mesure, rapides et adaptées.
     </p>
-</header>
+  </header>
 
+  <!-- NOTRE MÉTHODE -->
+  <section class="bg-gradient-to-r py-20 shadow-2xl p-10 rounded-3xl" style="background: linear-gradient(to right, #29548A, #FFFFFF, #d6d9e4);" data-aos="fade-down">
+    <div class="container mx-auto px-6">
+      <h2 class="font-serif text-3xl text-center mb-12" style="color: #0F3A6A;" data-i18n="method.title">Notre méthode</h2>
 
-
-
-<!-- NOTRE MÉTHODE -->
-<section class="bg-gradient-to-r py-20 shadow-2xl p-10 rounded-3xl" style="background: linear-gradient(to right, #29548A, #FFFFFF, #d6d9e4);" data-aos="fade-down">
-  <div class="container mx-auto px-6">
-    <h2 class="font-serif text-3xl text-center mb-12" style="color: #0F3A6A;">Notre méthode</h2>
-    
-    <div class="flex flex-col md:flex-row items-center md:space-x-12">
-      
-      <!-- Étapes -->
-      <div class="md:w-1/2 space-y-6">
-        <!-- Carte 1 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">1</div>
-          <p style="color:#525B76;"><strong>Vente de votre produit ou service</strong> à votre client.</p>
-        </div>
-        <!-- Carte 2 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="100">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">2</div>
-          <p style="color:#525B76;">Expédition de votre facture à Finexcorp.</p>
-        </div>
-        <!-- Carte 3 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="200">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">3</div>
-          <p style="color:#525B76;">Paiement par Finexcorp directement à <strong>votre entreprise</strong> sous 48h.</p>
-        </div>
-        <!-- Carte 4 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="300">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">4</div>
-          <p style="color:#525B76;">Paiement par votre client à un compte bloqué de votre entreprise.</p>
-        </div>
-        <!-- Carte 5 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="400">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">5</div>
-          <p style="color:#525B76;">Paiement de votre entreprise à Finexcorp selon les modalités établies.</p>
-        </div>
-      </div>
-
-      <!-- Image -->
-      <div class="md:w-1/2 mt-10 md:mt-0">
-        <img src="img/diagrammeC.png" alt="Schéma méthode Finexcorp" class="rounded-lg shadow-xl" data-aos="fade-left">
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-<!-- AUTRES TYPES DE FINANCEMENT -->
-<section class="bg-gray-50 py-16 border-b border-finGold">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-serif font-bold text-finBleufonce mb-12" data-aos="fade-down">
-      Nos autres types de financement
-    </h2>
-
-    <!-- Deux premières cartes côte à côte -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 mb-12">
-      <!-- Carte 1 -->
-      <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition card-hover" data-aos="flip-left">
-        <h3 class="text-2xl font-semibold text-finGold mb-4">Financement intérimaire</h3>
-        <p class="text-gray-700">
-          Des solutions temporaires adaptées pour combler vos besoins de trésorerie durant une période de transition.
-        </p>
-      </div>
-
-      <!-- Carte 2 -->
-      <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition card-hover" data-aos="flip-right" data-aos-delay="100">
-        <h3 class="text-2xl font-semibold text-finGold mb-4">Financement à l’importation</h3>
-        <p class="text-gray-700">
-          Optimisez vos opérations internationales grâce à un soutien financier pour vos importations.
-        </p>
-      </div>
-    </div>
-
-    <!-- Troisième carte en dessous (étapes + image) -->
-    <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition card-hover mx-6" data-aos="fade-up" data-aos-delay="200">
-      
-      <!-- Titre -->
-      <h3 class="text-2xl font-semibold text-finGold mb-6 text-center">Financement standard Finexcorp</h3>
-
-      <div class="flex flex-col md:flex-row md:items-center md:space-x-6">
-
+      <div class="flex flex-col md:flex-row items-center md:space-x-12">
         <!-- Étapes -->
-      <div class="md:w-1/2 space-y-6">
-        <!-- Carte 1 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">1</div>
-          <p style="color:#525B76;"><strong>Vente de votre produit ou service</strong> à votre client.</p>
+        <div class="md:w-1/2 space-y-6">
+          <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right">
+            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">1</div>
+            <p class="text-[#525B76]" data-i18n-html="method.step1"><strong>Vente de votre produit ou service</strong> à votre client.</p>
+          </div>
+          <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="100">
+            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">2</div>
+            <p class="text-[#525B76]" data-i18n="method.step2">Expédition de votre facture à Finexcorp.</p>
+          </div>
+          <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="200">
+            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">3</div>
+            <p class="text-[#525B76]" data-i18n-html="method.step3">Paiement par Finexcorp directement à <strong>votre entreprise</strong> sous 48h.</p>
+          </div>
+          <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="300">
+            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">4</div>
+            <p class="text-[#525B76]" data-i18n="method.step4">Paiement par votre client à un compte bloqué de votre entreprise.</p>
+          </div>
+          <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="400">
+            <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">5</div>
+            <p class="text-[#525B76]" data-i18n="method.step5">Paiement de votre entreprise à Finexcorp selon les modalités établies.</p>
+          </div>
         </div>
-        <!-- Carte 2 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="100">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">2</div>
-          <p style="color:#525B76;">Expédition de votre facture à Finexcorp.</p>
-        </div>
-        <!-- Carte 3 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="200">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">3</div>
-          <p style="color:#525B76;">Paiement par Finexcorp directement à <strong>votre entreprise</strong> sous 48h.</p>
-        </div>
-        <!-- Carte 4 -->
-        <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform" style="background:#FFFFFF;" data-aos="fade-right" data-aos-delay="300">
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">4</div>
-          <p style="color:#525B76;">Paiement par votre client à Finexcorp qui supporte pour vous le délai de paiement selon les modalités établies par votre entreprise</p>
-        </div>
-
-      </div>
 
         <!-- Image -->
-        <div class="md:w-1/2 mt-8 md:mt-0">
-          <img src="img/diagrammeS.png" alt="Schéma financement alternatif" class="rounded-lg shadow-md w-full h-auto object-contain">
+        <div class="md:w-1/2 mt-10 md:mt-0">
+          <img src="img/diagrammeC.png" alt="Schéma méthode Finexcorp" class="rounded-lg shadow-xl" data-aos="fade-left" data-i18n="method.imgAlt">
         </div>
-
       </div>
     </div>
-  </div>
-</section>
-
-
-  
-
-  <!-- CONTACT -->
-  <section class="bg-gradient-to-r from-finBleufonce to-finGold py-20 text-center text-white">
-    
-    <h2 id="explosiveText" class="text-white text-4xl font-bold opacity-0 scale-0 transition-all duration-500">Prêt à passer à l’action ?</h2>
-    <p class="text-lg mb-4 mt-3" data-aos="fade-up">Remplissez notre formulaire et un membre de notre équipe vous contactera rapidement.</p>
-    <a href="contact.html" class="px-8 py-3 mt-2 mb-4 bg-finGold text-finBleufonce font-bold rounded-full transition hover:bg-finBleufonce hover:text-finGold shadow-lg shadow-yellow-500/50">
-  Faire ma demande
-  <span class="absolute inset-0 rounded-full bg-finGold opacity-0 group-hover:opacity-20 transition"></span>
-</a>
-
   </section>
 
+  <!-- AUTRES TYPES DE FINANCEMENT -->
+  <section class="bg-gray-50 py-16 border-b border-finGold">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-serif font-bold text-finBleufonce mb-12" data-aos="fade-down" data-i18n="other.title">
+        Nos autres types de financement
+      </h2>
 
-  
+      <!-- Deux premières cartes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 mb-12">
+        <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition card-hover" data-aos="flip-left">
+          <h3 class="text-2xl font-semibold text-finGold mb-4" data-i18n="other.card1.h">Financement intérimaire</h3>
+          <p class="text-gray-700" data-i18n="other.card1.p">Des solutions temporaires adaptées pour combler vos besoins de trésorerie durant une période de transition.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition card-hover" data-aos="flip-right" data-aos-delay="100">
+          <h3 class="text-2xl font-semibold text-finGold mb-4" data-i18n="other.card2.h">Financement à l’importation</h3>
+          <p class="text-gray-700" data-i18n="other.card2.p">Optimisez vos opérations internationales grâce à un soutien financier pour vos importations.</p>
+        </div>
+      </div>
 
+      <!-- Troisième carte (process + image) -->
+      <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition card-hover mx-6" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-2xl font-semibold text-finGold mb-6 text-center" data-i18n="other.card3.h">Financement standard Finexcorp</h3>
 
+        <div class="flex flex-col md:flex-row md:items-center md:space-x-6">
+          <!-- Étapes -->
+          <div class="md:w-1/2 space-y-6">
+            <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right">
+              <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">1</div>
+              <p class="text-[#525B76]" data-i18n-html="other.card3.s1"><strong>Vente de votre produit ou service</strong> à votre client.</p>
+            </div>
+            <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="100">
+              <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">2</div>
+              <p class="text-[#525B76]" data-i18n="other.card3.s2">Expédition de votre facture à Finexcorp.</p>
+            </div>
+            <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="200">
+              <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">3</div>
+              <p class="text-[#525B76]" data-i18n-html="other.card3.s3">Paiement par Finexcorp directement à <strong>votre entreprise</strong> sous 48h.</p>
+            </div>
+            <div class="flex items-start rounded-lg shadow-lg p-6 hover:scale-105 transition transform bg-white" data-aos="fade-right" data-aos-delay="300">
+              <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold mr-4" style="background:#0F3A6A; color:#FFFFFF;">4</div>
+              <p class="text-[#525B76]" data-i18n="other.card3.s4">Paiement par votre client à Finexcorp qui supporte pour vous le délai de paiement selon les modalités établies par votre entreprise</p>
+            </div>
+          </div>
 
+          <!-- Image -->
+          <div class="md:w-1/2 mt-8 md:mt-0">
+            <img src="img/diagrammeS.png" alt="Schéma financement alternatif" class="rounded-lg shadow-md w-full h-auto object-contain" data-i18n="other.card3.imgAlt">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- CONTACT / CTA -->
+  <section class="bg-gradient-to-r from-finBleufonce to-finGold py-20 text-center text-white relative overflow-hidden">
+    <h2 id="explosiveText" class="text-white text-4xl font-bold opacity-0 scale-0 transition-all duration-500" data-i18n="cta.h2">Prêt à passer à l’action ?</h2>
+    <p class="text-lg mb-4 mt-3" data-aos="fade-up" data-i18n="cta.p">Remplissez notre formulaire et un membre de notre équipe vous contactera rapidement.</p>
+    <a href="contact.html" class="inline-block relative px-8 py-3 mt-2 mb-4 bg-finGold text-finBleufonce font-bold rounded-full transition hover:bg-finBleufonce hover:text-finGold shadow-lg shadow-yellow-500/50" data-i18n="cta.btn">
+      Faire ma demande
+      <span class="absolute inset-0 rounded-full bg-finGold opacity-0 group-hover:opacity-20 transition"></span>
+    </a>
+  </section>
 
-
-
-
-
-<!--Explosion-->
-<script>
+  <!-- Explosion -->
+  <script>
     const text = document.getElementById("explosiveText");
-    let hasExploded = false; // Pour que ça ne se déclenche qu'une seule fois
+    let hasExploded = false;
 
     function createParticles() {
       for (let i = 0; i < 25; i++) {
@@ -321,19 +224,15 @@ section.appear {
         particle.classList.add("particle");
         particle.style.left = "50%";
         particle.style.top = "50%";
-
         const angle = Math.random() * 2 * Math.PI;
         const distance = Math.random() * 200 + 50;
         particle.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
         particle.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
-
         document.body.appendChild(particle);
-
         setTimeout(() => particle.remove(), 800);
       }
     }
 
-    // Détection quand l'élément est visible
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !hasExploded) {
@@ -341,7 +240,7 @@ section.appear {
           text.classList.remove("opacity-0", "scale-0");
           text.classList.add("opacity-100", "scale-100");
           setTimeout(createParticles, 200);
-          observer.unobserve(text); // Arrête d'observer après la première explosion
+          observer.unobserve(text);
         }
       });
     }, { threshold: 0.5 });
@@ -349,61 +248,168 @@ section.appear {
     observer.observe(text);
   </script>
 
-
-  </script>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init({
-      offsett: 100,
-      duration: 1000,
-      easing: 'ease-in-out',
-        once: true
+    AOS.init({ offset: 100, duration: 1000, easing: 'ease-in-out', once: true });
+  </script>
+
+  <!-- Transitions de page -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { document.body.classList.add("loaded"); });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (this.target === "_blank") return;
+        if (!href || href.startsWith('#') || href.startsWith('mailto') || href === window.location.pathname.split('/').pop()) return;
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        document.body.classList.add("fade-out");
+        setTimeout(() => window.location.href = href, 400);
+      });
     });
   </script>
-<script>
-  // Fade-in au chargement
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("loaded");
-  });
+  <script src="transition.js"></script>
 
-  // Fade-out avant de quitter
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      
-      // Si le lien ouvre dans un nouvel onglet, on ne fait rien
-    if (this.target === "_blank") {
-      return;
-    }
-      // Si pas de href, ou ancre (#), ou mailto, ou la même page => on ne fait rien
-      if (!href || href.startsWith('#') || href.startsWith('mailto') || href === window.location.pathname.split('/').pop()) {
-        return;
-      }
-      e.preventDefault();
-      document.body.classList.remove("loaded");
-      document.body.classList.add("fade-out");
-      setTimeout(() => window.location.href = href, 400);
+  <!-- Transition fluide entre sections -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("appear"); });
+      }, { threshold: 0.2 });
+      sections.forEach(section => observer.observe(section));
     });
-  });
-</script>
-<script src="transition.js"></script>
+  </script>
 
-<!--Transition fluide entre les sections-->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("appear");
-        }
+  <!-- i18n Lang Switcher Script -->
+  <script>
+    const TRANSLATIONS = {
+      fr: {
+        'meta.title': 'Finexcorp - Solutions de financement',
+        'meta.description': 'Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.',
+        'nav.home': 'Accueil',
+        'nav.affacturage': "L'affacturage",
+        'nav.about': 'Qui est Finexcorp ?',
+        'nav.services': 'Nos Services',
+        'nav.contact': 'Contactez-nous',
+
+        'header.h1': 'Nos Services',
+        'header.p': 'Découvrez comment Finexcorp accompagne votre entreprise avec des solutions financières sur mesure, rapides et adaptées.',
+
+        'method.title': 'Notre méthode',
+        'method.step1': '<strong>Vente de votre produit ou service</strong> à votre client.',
+        'method.step2': 'Expédition de votre facture à Finexcorp.',
+        'method.step3': 'Paiement par Finexcorp directement à <strong>votre entreprise</strong> sous 48h.',
+        'method.step4': 'Paiement par votre client à un compte bloqué de votre entreprise.',
+        'method.step5': 'Paiement de votre entreprise à Finexcorp selon les modalités établies.',
+        'method.imgAlt': 'Schéma méthode Finexcorp',
+
+        'other.title': 'Nos autres types de financement',
+        'other.card1.h': 'Financement intérimaire',
+        'other.card1.p': 'Des solutions temporaires adaptées pour combler vos besoins de trésorerie durant une période de transition.',
+        'other.card2.h': 'Financement à l’importation',
+        'other.card2.p': 'Optimisez vos opérations internationales grâce à un soutien financier pour vos importations.',
+        'other.card3.h': 'Financement standard Finexcorp',
+        'other.card3.s1': '<strong>Vente de votre produit ou service</strong> à votre client.',
+        'other.card3.s2': 'Expédition de votre facture à Finexcorp.',
+        'other.card3.s3': 'Paiement par Finexcorp directement à <strong>votre entreprise</strong> sous 48h.',
+        'other.card3.s4': 'Paiement par votre client à Finexcorp qui supporte pour vous le délai de paiement selon les modalités établies par votre entreprise',
+        'other.card3.imgAlt': 'Schéma financement alternatif',
+
+        'cta.h2': 'Prêt à passer à l’action ?',
+        'cta.p': 'Remplissez notre formulaire et un membre de notre équipe vous contactera rapidement.',
+        'cta.btn': 'Faire ma demande'
+      },
+      en: {
+        'meta.title': 'Finexcorp - Financing solutions',
+        'meta.description': 'Finexcorp - Asset-based lending and factoring in Quebec. Get liquidity quickly thanks to our expertise.',
+        'nav.home': 'Home',
+        'nav.affacturage': 'Factoring',
+        'nav.about': 'Who is Finexcorp?',
+        'nav.services': 'Our Services',
+        'nav.contact': 'Contact us',
+
+        'header.h1': 'Our Services',
+        'header.p': 'Discover how Finexcorp supports your business with tailored, fast and flexible financial solutions.',
+
+        'method.title': 'Our method',
+        'method.step1': '<strong>Sale of your product or service</strong> to your customer.',
+        'method.step2': 'Send your invoice to Finexcorp.',
+        'method.step3': 'Payment from Finexcorp directly to <strong>your company</strong> within 48 hours.',
+        'method.step4': 'Your customer pays into a blocked account of your company.',
+        'method.step5': 'Your company reimburses Finexcorp according to the agreed terms.',
+        'method.imgAlt': 'Finexcorp method diagram',
+
+        'other.title': 'Our other financing options',
+        'other.card1.h': 'Bridge / Interim financing',
+        'other.card1.p': 'Temporary solutions to cover cash needs during a transition period.',
+        'other.card2.h': 'Import financing',
+        'other.card2.p': 'Optimize international operations with financial support for your imports.',
+        'other.card3.h': 'Finexcorp standard financing',
+        'other.card3.s1': '<strong>Sale of your product or service</strong> to your customer.',
+        'other.card3.s2': 'Send your invoice to Finexcorp.',
+        'other.card3.s3': 'Payment from Finexcorp directly to <strong>your company</strong> within 48 hours.',
+        'other.card3.s4': 'Your customer pays Finexcorp; we carry the payment term for you under your company’s agreed terms.',
+        'other.card3.imgAlt': 'Alternative financing diagram',
+
+        'cta.h2': 'Ready to get started?',
+        'cta.p': 'Fill out our form and a team member will get back to you quickly.',
+        'cta.btn': 'Start my request'
+      }
+    };
+
+    const setHtmlLang = (lang) => { document.documentElement.setAttribute('lang', lang); };
+
+    const applyTranslations = (lang) => {
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS.fr;
+
+      // Text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
       });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-  });
-</script>
 
+      // HTML blocks (préserve <strong>, liens, etc.)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html') || el.getAttribute('data-i18n'); // fallback si oublié
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
 
+      // Title & meta
+      const t = document.querySelector('title[data-i18n="meta.title"]');
+      if (t && dict['meta.title']) t.textContent = dict['meta.title'];
+      const m = document.querySelector('meta[name="description"][data-i18n="meta.description"]');
+      if (m && dict['meta.description']) m.setAttribute('content', dict['meta.description']);
+
+      setHtmlLang(lang);
+      localStorage.setItem('finex_lang', lang);
+
+      // Boutons actifs
+      const allBtns = ['#lang-fr', '#lang-en', '#lang-fr-mobile', '#lang-en-mobile'].map(s => document.querySelector(s)).filter(Boolean);
+      allBtns.forEach(b => b.classList.remove('bg-finBleufonce','text-white'));
+      (lang === 'fr' ? ['#lang-fr','#lang-fr-mobile'] : ['#lang-en','#lang-en-mobile'])
+        .map(s => document.querySelector(s)).filter(Boolean)
+        .forEach(b => b.classList.add('bg-finBleufonce','text-white'));
+    };
+
+    const initLang = () => {
+      const saved = localStorage.getItem('finex_lang');
+      const browser = (navigator.language || 'fr').slice(0,2);
+      const lang = saved || (browser === 'en' ? 'en' : 'fr');
+      applyTranslations(lang);
+    };
+
+    const onReady = () => {
+      [["#lang-fr","fr"],["#lang-en","en"],["#lang-fr-mobile","fr"],["#lang-en-mobile","en"]].forEach(([sel, code]) => {
+        const btn = document.querySelector(sel);
+        if (btn) btn.addEventListener('click', () => applyTranslations(code));
+      });
+      initLang();
+    };
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', onReady);
+    else onReady();
+  </script>
 </body>
 </html>

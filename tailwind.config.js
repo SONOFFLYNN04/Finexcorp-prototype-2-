@@ -31,8 +31,8 @@ module.exports = {
         finBleufonce: "#0F3A6A",
         finBleupale: "#29548A",
         finGold: "#D4AF37",
-        white: "#F9FAFB",
-        
+        white: "#FFFFFF",
+
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'serif'],

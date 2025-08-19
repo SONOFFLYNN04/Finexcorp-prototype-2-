@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Mentions légales - Finexcorp</title>
+    <link rel="icon" href="img/faivcon.png" type="image/png">
+
+
+  <title data-i18n="title">Mentions légales - Finexcorp</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,32 +38,121 @@
       font-size: 0.9em;
       color: #555;
     }
+    /* Boutons langues */
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .lang-switch button {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-switch button.active {
+      background: #0F3A6A;
+      color: white;
+    }
   </style>
 </head>
 <body>
-    <div class="bg-gradient-to-br from-white via-finGold/10 to-finBleufonce">
+  <div class="bg-gradient-to-br from-white via-finGold/10 to-finBleufonce">
 
-  <h1>Mentions légales</h1>
+    <!-- Boutons langue -->
+    <div class="lang-switch">
+      <button id="btn-fr" class="active">FR</button>
+      <button id="btn-en">EN</button>
+    </div>
 
-  
-  <h2>1. Propriété intellectuelle</h2>
-  <p>L’ensemble des contenus présents sur ce site (textes, images, graphismes, logo, etc.) est la propriété exclusive de Finexcorp Inc., sauf mention contraire. 
-  Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site est interdite sans l’autorisation écrite préalable de Finexcorp Inc.</p>
+    <h1 data-i18n="heading">Mentions légales</h1>
 
-  <h2>2. Données personnelles</h2>
-  <p>Les informations collectées via les formulaires de contact ou autres moyens ne sont utilisées que dans le cadre des échanges professionnels avec Finexcorp Inc. 
-  Conformément aux lois en vigueur, vous disposez d’un droit d’accès, de modification et de suppression de vos données personnelles. 
-  Pour toute demande, contactez-nous à <strong>contact@finexcorp.ca</strong>.</p>
+    <h2 data-i18n="section1.title">1. Propriété intellectuelle</h2>
+    <p data-i18n="section1.text">
+      L’ensemble des contenus présents sur ce site (textes, images, graphismes, logo, etc.) est la propriété exclusive de Finexcorp Inc., sauf mention contraire. 
+      Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site est interdite sans l’autorisation écrite préalable de Finexcorp Inc.
+    </p>
 
-  <h2>3. Limitation de responsabilité</h2>
-  <p>Finexcorp Inc. s’efforce d’assurer l’exactitude et la mise à jour des informations publiées sur ce site. 
-  Toutefois, elle ne saurait être tenue responsable des erreurs ou omissions éventuelles. L’utilisation des informations disponibles sur ce site se fait sous la responsabilité de l’utilisateur.</p>
+    <h2 data-i18n="section2.title">2. Données personnelles</h2>
+    <p data-i18n="section2.text">
+      Les informations collectées via les formulaires de contact ou autres moyens ne sont utilisées que dans le cadre des échanges professionnels avec Finexcorp Inc. 
+      Conformément aux lois en vigueur, vous disposez d’un droit d’accès, de modification et de suppression de vos données personnelles. 
+      Pour toute demande, contactez-nous à <strong>contact@finexcorp.ca</strong>.
+    </p>
 
-  <footer>
-    &copy; 2025 Finexcorp Inc. – Tous droits réservés.
-  </footer>
+    <h2 data-i18n="section3.title">3. Limitation de responsabilité</h2>
+    <p data-i18n="section3.text">
+      Finexcorp Inc. s’efforce d’assurer l’exactitude et la mise à jour des informations publiées sur ce site. 
+      Toutefois, elle ne saurait être tenue responsable des erreurs ou omissions éventuelles. L’utilisation des informations disponibles sur ce site se fait sous la responsabilité de l’utilisateur.
+    </p>
 
+    <footer data-i18n="footer">
+      &copy; 2025 Finexcorp Inc. – Tous droits réservés.
+    </footer>
   </div>
 
+  <script>
+    const translations = {
+      fr: {
+        title: "Mentions légales - Finexcorp",
+        heading: "Mentions légales",
+        section1: {
+          title: "1. Propriété intellectuelle",
+          text: "L’ensemble des contenus présents sur ce site (textes, images, graphismes, logo, etc.) est la propriété exclusive de Finexcorp Inc., sauf mention contraire. Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site est interdite sans l’autorisation écrite préalable de Finexcorp Inc."
+        },
+        section2: {
+          title: "2. Données personnelles",
+          text: "Les informations collectées via les formulaires de contact ou autres moyens ne sont utilisées que dans le cadre des échanges professionnels avec Finexcorp Inc. Conformément aux lois en vigueur, vous disposez d’un droit d’accès, de modification et de suppression de vos données personnelles. Pour toute demande, contactez-nous à <strong>contact@finexcorp.ca</strong>."
+        },
+        section3: {
+          title: "3. Limitation de responsabilité",
+          text: "Finexcorp Inc. s’efforce d’assurer l’exactitude et la mise à jour des informations publiées sur ce site. Toutefois, elle ne saurait être tenue responsable des erreurs ou omissions éventuelles. L’utilisation des informations disponibles sur ce site se fait sous la responsabilité de l’utilisateur."
+        },
+        footer: "© 2025 Finexcorp Inc. – Tous droits réservés."
+      },
+      en: {
+        title: "Legal Notice - Finexcorp",
+        heading: "Legal Notice",
+        section1: {
+          title: "1. Intellectual Property",
+          text: "All content on this site (texts, images, graphics, logo, etc.) is the exclusive property of Finexcorp Inc., unless otherwise stated. Any reproduction, representation, modification, publication, or adaptation of all or part of the site’s elements is prohibited without the prior written consent of Finexcorp Inc."
+        },
+        section2: {
+          title: "2. Personal Data",
+          text: "The information collected through contact forms or other means is used solely within the scope of professional exchanges with Finexcorp Inc. In accordance with applicable laws, you have the right to access, modify, and delete your personal data. For any request, please contact us at <strong>contact@finexcorp.ca</strong>."
+        },
+        section3: {
+          title: "3. Limitation of Liability",
+          text: "Finexcorp Inc. makes every effort to ensure the accuracy and updating of the information published on this site. However, it cannot be held responsible for any errors or omissions. The use of the information available on this site is at the user’s own responsibility."
+        },
+        footer: "© 2025 Finexcorp Inc. – All rights reserved."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const keys = el.getAttribute("data-i18n").split(".");
+        let text = translations[lang];
+        keys.forEach(k => text = text[k]);
+        if (el.tagName.toLowerCase() === "p" || el.tagName.toLowerCase() === "footer") {
+          el.innerHTML = text; // permet de garder le <strong>
+        } else {
+          el.textContent = text;
+        }
+      });
+
+      document.getElementById("btn-fr").classList.toggle("active", lang === "fr");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+    }
+
+    document.getElementById("btn-fr").addEventListener("click", () => setLanguage("fr"));
+    document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+
+    // Langue par défaut
+    setLanguage("fr");
+  </script>
 </body>
 </html>

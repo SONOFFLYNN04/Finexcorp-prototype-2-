@@ -3,438 +3,447 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finexcorp - Solutions de financement</title>
-  <meta name="description" content="Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.">
+  <title data-i18n="meta.title">Finexcorp - Solutions de financement</title>
+  <meta name="description" data-i18n="meta.description" content="Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.">
   <link rel="stylesheet" href="./dist/output.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/faivcon.png" type="image/png">
 
 
-<!--Téléphone, email et adresse-->
-<style>
-    .contact-card {
-      transition: all 0.3s ease;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      border: 1px solid #D4AF37;
-      background: #fdfcf8;
-    }
+  <!-- Cartes coordonnées -->
+  <style>
+    .contact-card { transition: all 0.3s ease; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .contact-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 1px solid #D4AF37; background: #fdfcf8; }
   </style>
 
-<!--Underline-->
-<style>
-  
-  .underline:hover {
-    text-decoration-color: #D4AF37; /* Couleur de l'underline au survol */
-    text-decoration-thickness: 3px; /* Épaisseur de l'underline au survol */
-    text-decoration: underline;
-    border-bottom: #D4AF37 2px solid; /* Bordure en bas */
-    box-shadow: 0 1px 0 #D4AF37;
-  }
+  <!-- Underline hover -->
+  <style>
+    .underline:hover { text-decoration-color:#D4AF37; text-decoration-thickness:3px; text-decoration:underline; border-bottom:#D4AF37 2px solid; box-shadow:0 1px 0 #D4AF37; }
+    .underline-hover::after { content:''; position:absolute; width:0; height:2px; bottom:-3px; left:0; background:#D4AF37; transition:width .3s ease; }
+    .underline-hover:hover::after { width:100%; }
+  </style>
 
-  .underline-hover::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -3px;
-  left: 0;
-  background-color: #D4AF37; /* couleur finGold */
-  transition: width 0.3s ease;
-}
+  <!-- Effet de lumière sur les boutons -->
+  <style>
+    button, a { position: relative; overflow: hidden; }
+    button::before, a::before { content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:rgba(255,255,255,0.2); transform:rotate(25deg) translateX(-100%); transition:transform .5s ease; }
+    button:hover::before, a:hover::before { transform:rotate(25deg) translateX(100%); }
+  </style>
 
-.underline-hover:hover::after {
-  width: 100%;
-}
-</style>
+  <!-- Transitions de page -->
+  <style>
+    body { opacity:0; transition:opacity .5s ease-in-out; }
+    body.loaded { opacity:1; }
+    .fade-out { opacity:0; transition:opacity .4s ease-in-out; }
+  </style>
 
-
-    <!--Effet de lumière sur les boutons-->
-    <style> button, a {
-  position: relative;
-  overflow: hidden;
-}
-button::before, a::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255,255,255,0.2);
-  transform: rotate(25deg) translateX(-100%);
-  transition: transform 0.5s ease;
-}
-button:hover::before, a:hover::before {
-  transform: rotate(25deg) translateX(100%);
-}
-</style>
-
-<style>
-  body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  body.loaded {
-    opacity: 1;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-</style>
-<style>
-  body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  body.loaded {
-    opacity: 1;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-</style>
-
-
+  <!-- Particules (non utilisées ici mais prêtes si tu veux) -->
+  <style>
+    .particle { position:absolute; width:8px; height:8px; border-radius:50%; background:#D4AF37; opacity:1; pointer-events:none; animation:explode .8s ease-out forwards; }
+    @keyframes explode { to { transform: translate(var(--x), var(--y)); opacity:0; } }
+  </style>
 </head>
 
-
-
-
-
-<body class=" font-sans bg-gradient-to-br from-white via-finGold/10 to-finBleufonce text-gray-800">
+<body class="font-sans bg-gradient-to-br from-white via-finGold/10 to-finBleufonce text-gray-800">
   <!-- Navbar -->
-  <nav class="relative container border-b border-finGold mx-auto py-2 font-serif ">
+  <nav class="relative container border-b border-finGold mx-auto py-2 font-serif">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <div class="">
+      <div>
         <a href="index.html"><img src="img/zelogo.png" class="max-h-26 w-[200px]" alt="Logo Finexcorp"/></a>
       </div>
-      <!-- Menu -->
-      <div class="hidden md:flex space-x-12">
-        <a href="L'affacturage.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">L'affacturage</a>
-        <a href="PourquoiFinexcorp.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">Pourquoi Finexcorp ?</a>
-        <a href="nossServices.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">Nos Services</a>
 
+      <!-- Menu + Lang -->
+      <div class="hidden md:flex items-center space-x-6">
+        <div class="hidden md:flex space-x-12">
+          <a href="L'affacturage.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.affacturage">L'affacturage</a>
+          <a href="PourquoiFinexcorp.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.about">Pourquoi Finexcorp ?</a>
+          <a href="nossServices.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.services">Nos Services</a>
+        </div>
+        <div class="hidden md:flex items-center gap-2 ml-6">
+          <button id="lang-fr" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce hover:bg-finBleufonce hover:text-white transition" aria-label="Français">FR</button>
+          <button id="lang-en" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce hover:bg-finBleufonce hover:text-white transition" aria-label="English">EN</button>
+        </div>
       </div>
+
       <!-- CTA -->
-      <a href="contact.html" class="hidden md:block px-4 p-2 text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50">
-        Contactez-nous
-      </a>
+      <a href="contact.html" class="hidden md:block px-4 p-2 text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50" data-i18n="nav.contact">Contactez-nous</a>
+
       <!-- Hamburger -->
-      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-        <span class="hamburger-top"></span>
-        <span class="hamburger-middle"></span>
-        <span class="hamburger-bottom"></span>
+      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none" aria-label="Menu">
+        <span class="hamburger-top"></span><span class="hamburger-middle"></span><span class="hamburger-bottom"></span>
       </button>
     </div>
+
     <!-- Mobile Menu -->
     <div class="md:hidden">
-      <div id="menu" class="absolute hidden flex-col items-center self-end hidden py-3 mt-2 space-y-6 font-bold bg-white left-6 right-6 drop-shadow-md">
-        <a href="index.html">Accueil</a>
-        <a href="L'affacturage.html">Affacturage</a>
-        <a href="PourquoiFinexcorp.html">Pourquoi Finexcorp ?</a>
-        <a href="nossServices.html">Nos Services</a>
-
+      <div id="menu" class="absolute hidden flex-col items-center self-end py-3 mt-10 space-y-6 font-bold bg-white left-6 right-6 drop-shadow-md">
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="L'affacturage.html" data-i18n="nav.affacturage">Affacturage</a>
+        <a href="PourquoiFinexcorp.html" data-i18n="nav.about">Pourquoi Finexcorp ?</a>
+        <a href="nossServices.html" data-i18n="nav.services">Nos Services</a>
+        <!-- Lang (mobile) -->
+        <div class="flex justify-center gap-3 mt-2">
+          <button id="lang-fr-mobile" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce">FR</button>
+          <button id="lang-en-mobile" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce">EN</button>
+        </div>
       </div>
     </div>
   </nav>
 
-
-
-
   <!-- HERO -->
   <section class="relative text-center py-20">
-    <h1 class="text-4xl md:text-5xl font-header text-finGold" data-aos="fade-down">Un partenaire à votre écoute</h1>
-    <p class="mt-4 text-lg text-finBleufonce max-w-2xl mx-auto" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-header text-finGold" data-aos="fade-down" data-i18n="hero.h1">Un partenaire à votre écoute</h1>
+    <p class="mt-4 text-lg text-finBleufonce max-w-2xl mx-auto" data-aos="fade-up" data-i18n-html="hero.pHtml">
       Prenez contact avec nous dès aujourd’hui et découvrez comment <span class="font-semibold text-finGold">Finexcorp</span> peut soutenir votre croissance.
     </p>
   </section>
-
 
   <!-- COORDONNÉES -->
   <section class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
     <div class="contact-card border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in">
       <div class="text-finGold text-4xl mb-4">📞</div>
-      <h3 class="font-header text-xl text-finBleufonce mb-2">Téléphone</h3>
-      <p class="text-gray-600">+1 (418) 905-0576</p>
+      <h3 class="font-header text-xl text-finBleufonce mb-2" data-i18n="cards.phone.h">Téléphone</h3>
+      <p class="text-gray-600" data-i18n="cards.phone.v">+1 (418) 905-0576</p>
     </div>
     <div class="contact-card border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="100">
       <div class="text-finGold text-4xl mb-4">✉️</div>
-      <h3 class="font-header text-xl text-finBleufonce mb-2">Courriel</h3>
-      <p class="text-gray-600">info@finexcorp.ca</p>
+      <h3 class="font-header text-xl text-finBleufonce mb-2" data-i18n="cards.email.h">Courriel</h3>
+      <p class="text-gray-600" data-i18n="cards.email.v">info@finexcorp.ca</p>
     </div>
     <div class="contact-card border border-finGold rounded-lg shadow-lg p-8 text-center hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
       <div class="text-finGold text-4xl mb-4">📍</div>
-      <h3 class="font-header text-xl text-finBleufonce mb-2">Adresse</h3>
-      <p class="text-gray-600">1190-B Rue de Courchevel, 
-        <br>
-        Suite 400, Lévis, QC</p>
+      <h3 class="font-header text-xl text-finBleufonce mb-2" data-i18n="cards.address.h">Adresse</h3>
+      <p class="text-gray-600" data-i18n-html="cards.address.vHtml">
+        1190‑B Rue de Courchevel,<br>Suite 400, Lévis, QC
+      </p>
     </div>
   </section>
 
-
-
   <!-- FORMULAIRE -->
   <section class="py-16">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-header text-finBleufonce text-center mb-12" data-aos="fade-up">Écrivez-nous</h2>
-    <form action="https://formspree.io/f/xzzvqlyq" method="post" class="bg-white rounded-lg shadow-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-0 border border-finGold divide-y md:divide-y-0 md:divide-x divide-gray-200" data-aos="fade-up" data-aos-delay="200"
-      id="contactForm"
-      action="https://formspree.io/f/xzzvqlyq"
-      method="POST"
-      data-aos="fade-up" data-aos-delay="200">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-header text-finBleufonce text-center mb-12" data-aos="fade-up" data-i18n="form.title">Écrivez-nous</h2>
 
-  <!-- Nom -->
-  <div class="p-4">
-    <input type="text" name="nom" placeholder="Nom complet" required
-           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-  </div>
+      <form id="contactForm"
+            action="https://formspree.io/f/xzzvqlyq"
+            method="POST"
+            class="bg-white rounded-lg shadow-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-0 border border-finGold divide-y md:divide-y-0 md:divide-x divide-gray-200"
+            data-aos="fade-up" data-aos-delay="200">
 
-  <!-- Entreprise (menu déroulant) -->
-  <div class="p-4">
-    <select name="secteur" required
-            class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700 bg-white">
-      <option value="">Secteur d'activité</option>
-      <option value="industriels">Industriels</option>
-      <option value="transformations">Transformations</option>
-      <option value="transport">Transport</option>
-      <option value="autres">Autres</option>
-    </select>
-  </div>
+        <!-- Nom -->
+        <div class="p-4">
+          <input type="text" name="nom" required
+                 class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"
+                 placeholder="Nom complet" data-i18n-ph="form.name.ph">
+        </div>
 
-  <!-- Courriel -->
-  <div class="p-4">
-    <input type="email" name="email" placeholder="Courriel" required
-           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-  </div>
+        <!-- Secteur -->
+        <div class="p-4">
+          <select name="secteur" required class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700 bg-white" aria-label="Secteur d'activité" data-i18n-aria="form.sector.aria">
+            <option value="" data-i18n="form.sector.opt0">Secteur d'activité</option>
+            <option value="industriels" data-i18n="form.sector.opt1">Industriels</option>
+            <option value="transformations" data-i18n="form.sector.opt2">Transformations</option>
+            <option value="transport" data-i18n="form.sector.opt3">Transport</option>
+            <option value="autres" data-i18n="form.sector.opt4">Autres</option>
+          </select>
+        </div>
 
-  <!-- Téléphone -->
-  <div class="p-4">
-    <input type="tel" name="telephone" placeholder="Téléphone"
-           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-  </div>
+        <!-- Courriel -->
+        <div class="p-4">
+          <input type="email" name="email" required
+                 class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"
+                 placeholder="Courriel" data-i18n-ph="form.email.ph">
+        </div>
 
-  <!-- Sujet -->
-  <div class="p-4 md:col-span-2 border-t md:border-t-0">
-    <input type="text" name="sujet" placeholder="Sujet" required
-           class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700">
-  </div>
+        <!-- Téléphone -->
+        <div class="p-4">
+          <input type="tel" name="telephone"
+                 class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"
+                 placeholder="Téléphone" data-i18n-ph="form.phone.ph">
+        </div>
 
-  <!-- Message -->
-  <div class="p-4 md:col-span-2 border-t">
-    <textarea name="message" placeholder="Votre message" rows="5" required
-              class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"></textarea>
-  </div>
+        <!-- Sujet -->
+        <div class="p-4 md:col-span-2 border-t md:border-t-0">
+          <input type="text" name="sujet" required
+                 class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"
+                 placeholder="Sujet" data-i18n-ph="form.subject.ph">
+        </div>
 
-  <!-- Bouton -->
-  <div class="p-4 md:col-span-2">
-    <button id="submitBtn" type="submit"
-            class="relative w-full bg-finBleufonce text-finGold font-bold py-3 rounded-full hover:bg-finGold hover:text-finBleufonce transition shadow-lg shadow-yellow-500/50 overflow-hidden">
-      Envoyer mon message
-      <span class="absolute inset-0 bg-finGold opacity-0 scale-0 rounded-full transition-transform duration-300 ease-out" id="clickEffect"></span>
-    </button>
-  </div>
+        <!-- Message -->
+        <div class="p-4 md:col-span-2 border-t">
+          <textarea name="message" rows="5" required
+                    class="w-full border-0 focus:outline-none focus:ring-0 text-gray-700"
+                    placeholder="Votre message" data-i18n-ph="form.message.ph"></textarea>
+        </div>
 
-  <!-- (Optionnel) anti-spam honeypot invisible -->
-  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
-  <!-- (Optionnel) sujet d’email côté Formspree -->
-  <input type="hidden" name="_subject" value="Nouveau message du site Finexcorp">
-</form>
+        <!-- Bouton -->
+        <div class="p-4 md:col-span-2">
+          <button id="submitBtn" type="submit"
+                  class="relative w-full bg-finBleufonce text-finGold font-bold py-3 rounded-full hover:bg-finGold hover:text-finBleufonce transition shadow-lg shadow-yellow-500/50 overflow-hidden"
+                  data-i18n="form.submit">Envoyer mon message</button>
+        </div>
 
-<!-- Message de confirmation (déjà sur ta page) -->
-<div id="confirmationMessage"
-     class="mt-6 text-center text-finBleufonce text-xl font-semibold opacity-0 transition-opacity duration-500"
-     aria-live="polite">
-  Votre message a été envoyé avec succès !
-</div>
+        <!-- anti-spam -->
+        <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Nouveau message du site Finexcorp">
+      </form>
 
-<!-- Zone d’erreur discrète -->
-<div id="errorMessage"
-     class="mt-4 text-center text-red-600 text-base opacity-0 transition-opacity duration-300">
-</div>
+      <!-- Messages -->
+      <div id="confirmationMessage"
+           class="mt-6 text-center text-finBleufonce text-xl font-semibold opacity-0 transition-opacity duration-500"
+           aria-live="polite"
+           data-i18n="form.success">
+        Votre message a été envoyé avec succès !
+      </div>
 
+      <div id="errorMessage"
+           class="mt-4 text-center text-red-600 text-base opacity-0 transition-opacity duration-300"
+           data-i18n="form.error">
+      </div>
+    </div>
+  </section>
 
-
-  
   <!-- Footer -->
   <footer class="bg-white text-finGold py-8">
-  <div class="container mx-auto text-center">
-    <img src="img/zelogo.png" alt="Logo Finexcorp" class="max-h-26 w-[200px] mb-4 mx-auto">
-    <p class="text-sm text-gray-300">&copy; 2025 Finexcorp. Tous droits réservés.</p>
-    <div class="flex justify-center space-x-6 mt-4">
-      <a href="contact.html" class="hover:text-finGold transition">Contact</a>
-      <a href="mentionlegale.html" class="hover:text-finGold transition">Mentions légales</a>
+    <div class="container mx-auto text-center">
+      <img src="img/zelogo.png" alt="Logo Finexcorp" class="max-h-26 w-[200px] mb-4 mx-auto">
+      <p class="text-sm text-gray-300" data-i18n="footer.copy">© 2025 Finexcorp. Tous droits réservés.</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="contact.html" class="hover:text-finGold transition" data-i18n="footer.contact">Contact</a>
+        <a href="mentionlegale.html" class="hover:text-finGold transition" data-i18n="footer.legal">Mentions légales</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-      
-      
-    
+  <!-- Formspree + messages -->
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const confirmEl = document.getElementById('confirmationMessage');
+      const errorEl = document.getElementById('errorMessage');
+      const submitBtn = document.getElementById('submitBtn');
 
-<!-- Script pour le formulaire de contact-->
+      const show = el => el.classList.remove('opacity-0');
+      const hide = el => el.classList.add('opacity-0');
 
-<script>
-  (function () {
-    const form = document.getElementById('contactForm');
-    const confirmEl = document.getElementById('confirmationMessage');
-    const errorEl = document.getElementById('errorMessage');
-    const submitBtn = document.getElementById('submitBtn');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        hide(confirmEl); hide(errorEl);
 
-    function show(el) {
-      el.classList.remove('opacity-0');
-    }
-    function hide(el) {
-      el.classList.add('opacity-0');
-    }
+        const originalText = submitBtn.textContent.trim();
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70','cursor-not-allowed');
+        submitBtn.textContent = (document.documentElement.lang === 'en') ? 'Sending…' : 'Envoi en cours…';
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      hide(confirmEl);
-      hide(errorEl);
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
 
-      // Désactivation & état "envoi…"
-      const originalText = submitBtn.textContent.trim();
-      submitBtn.disabled = true;
-      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-      submitBtn.textContent = 'Envoi en cours…';
-
-      try {
-        const formData = new FormData(form);
-
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          form.reset();
-          show(confirmEl);
-          hide(errorEl);
-          // Optionnel: masquer l’alerte au bout de 6s
-          setTimeout(() => hide(confirmEl), 6000);
-        } else {
-          // Tenter de lire le message d’erreur Formspree
-          let msg = "Une erreur est survenue. Réessayez dans un instant.";
-          try {
-            const data = await res.json();
-            if (data && data.errors && data.errors.length) {
-              msg = data.errors.map(e => e.message).join(' ');
-            }
-          } catch(_) {}
-          errorEl.textContent = msg;
+          if (res.ok) {
+            form.reset(); show(confirmEl); hide(errorEl);
+            setTimeout(() => hide(confirmEl), 6000);
+          } else {
+            let msg = (document.documentElement.lang === 'en')
+              ? 'An error occurred. Please try again shortly.'
+              : 'Une erreur est survenue. Réessayez dans un instant.';
+            try {
+              const data = await res.json();
+              if (data && data.errors && data.errors.length) {
+                msg = data.errors.map(e => e.message).join(' ');
+              }
+            } catch(_) {}
+            errorEl.textContent = msg; show(errorEl);
+          }
+        } catch (err) {
+          errorEl.textContent = (document.documentElement.lang === 'en')
+            ? "Couldn't send the message (connection)."
+            : "Impossible d'envoyer le message (connexion).";
           show(errorEl);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-70','cursor-not-allowed');
+          submitBtn.textContent = originalText;
         }
-      } catch (err) {
-        errorEl.textContent = "Impossible d'envoyer le message (connexion).";
-        show(errorEl);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
-        submitBtn.textContent = originalText;
-      }
-    });
-  })();
-</script>
-
-
-  <!--Hambuger Menu Script-->
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const menu = document.getElementById('menu');
-
-  menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('hidden'); // affiche/masque le menu
-    menuBtn.classList.toggle('open'); // (optionnel) pour animer le bouton
-  });
-</script>
-
-
-<!-- Message de confirmation -->
- <script>
-  // Animation bouton clic
-  const btn = document.getElementById('submitBtn');
-  const clickEffect = document.getElementById('clickEffect');
-  btn.addEventListener('click', function (e) {
-    e.preventDefault(); 
-    clickEffect.style.opacity = "0.3";
-    clickEffect.style.transform = "scale(4)";
-    setTimeout(() => {
-      clickEffect.style.opacity = "0";
-      clickEffect.style.transform = "scale(0)";
-    }, 300);
- // Afficher le message de confirmation
-    const confirmation = document.getElementById('confirmationMessage');
-    confirmation.style.opacity = "1";
-    setTimeout(() => {
-      confirmation.style.opacity = "0";
-    }, 4000);
-  });
+      });
+    })();
   </script>
 
-  
-
-
-
-<!--Accordéon FAQ-->
+  <!-- Menu mobile -->
   <script>
-    document.querySelectorAll('.faq-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        content.classList.toggle('hidden');
-        button.querySelector('span').textContent = content.classList.contains('hidden') ? '+' : '-';
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    if (menuBtn) menuBtn.addEventListener('click', () => { menu.classList.toggle('hidden'); menuBtn.classList.toggle('open'); });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script> AOS.init({ duration: 1000, easing: 'ease-in-out', once: true }); </script>
+
+  <!-- Fade transition pages -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { document.body.classList.add("loaded"); });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || this.target === "_blank" || href.startsWith('#') || href.startsWith('mailto') || href === window.location.pathname.split('/').pop()) return;
+        e.preventDefault();
+        document.body.classList.remove("loaded"); document.body.classList.add("fade-out");
+        setTimeout(() => window.location.href = href, 400);
       });
     });
   </script>
+  <script src="transition.js"></script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- i18n Lang Switcher -->
   <script>
-    AOS.init({
-      
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true, 
-    });
-  </script>
+    const TRANSLATIONS = {
+      fr: {
+        'meta.title': 'Finexcorp - Solutions de financement',
+        'meta.description': 'Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.',
+        'nav.home': 'Accueil',
+        'nav.affacturage': "L'affacturage",
+        'nav.about': 'Pourquoi Finexcorp ?',
+        'nav.services': 'Nos Services',
+        'nav.contact': 'Contactez-nous',
 
+        'hero.h1': "Un partenaire à votre écoute",
+        'hero.pHtml': "Prenez contact avec nous dès aujourd’hui et découvrez comment <span class=\"font-semibold text-finGold\">Finexcorp</span> peut soutenir votre croissance.",
 
-<script>
-  // Fade-in au chargement
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("loaded");
-  });
+        'cards.phone.h': 'Téléphone',
+        'cards.phone.v': '+1 (418) 905-0576',
+        'cards.email.h': 'Courriel',
+        'cards.email.v': 'info@finexcorp.ca',
+        'cards.address.h': 'Adresse',
+        'cards.address.vHtml': '1190‑B Rue de Courchevel,<br>Suite 400, Lévis, QC',
 
-  // Fade-out avant de quitter
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      // Si pas de href, ou ancre (#), ou mailto, ou la même page => on ne fait rien
-      if (!href || href.startsWith('#') || href.startsWith('mailto') || href === window.location.pathname.split('/').pop()) {
-        return;
+        'form.title': 'Écrivez-nous',
+        'form.name.ph': 'Nom complet',
+        'form.sector.aria': "Secteur d'activité",
+        'form.sector.opt0': "Secteur d'activité",
+        'form.sector.opt1': 'Industriels',
+        'form.sector.opt2': 'Transformations',
+        'form.sector.opt3': 'Transport',
+        'form.sector.opt4': 'Autres',
+        'form.email.ph': 'Courriel',
+        'form.phone.ph': 'Téléphone',
+        'form.subject.ph': 'Sujet',
+        'form.message.ph': 'Votre message',
+        'form.submit': 'Envoyer mon message',
+        'form.success': 'Votre message a été envoyé avec succès !',
+        'form.error': '',
+
+        'footer.copy': '© 2025 Finexcorp. Tous droits réservés.',
+        'footer.contact': 'Contact',
+        'footer.legal': 'Mentions légales'
+      },
+      en: {
+        'meta.title': 'Finexcorp - Financing solutions',
+        'meta.description': 'Finexcorp - Asset-based lending and factoring in Quebec. Get liquidity quickly thanks to our expertise.',
+        'nav.home': 'Home',
+        'nav.affacturage': 'Factoring',
+        'nav.about': 'Why Finexcorp?',
+        'nav.services': 'Our Services',
+        'nav.contact': 'Contact us',
+
+        'hero.h1': "A partner who listens",
+        'hero.pHtml': 'Reach out today and discover how <span class="font-semibold text-finGold">Finexcorp</span> can support your growth.',
+
+        'cards.phone.h': 'Phone',
+        'cards.phone.v': '+1 (418) 905-0576',
+        'cards.email.h': 'Email',
+        'cards.email.v': 'info@finexcorp.ca',
+        'cards.address.h': 'Address',
+        'cards.address.vHtml': '1190‑B Rue de Courchevel,<br>Suite 400, Lévis, QC',
+
+        'form.title': 'Write to us',
+        'form.name.ph': 'Full name',
+        'form.sector.aria': 'Business sector',
+        'form.sector.opt0': 'Business sector',
+        'form.sector.opt1': 'Industrial',
+        'form.sector.opt2': 'Manufacturing',
+        'form.sector.opt3': 'Transport',
+        'form.sector.opt4': 'Other',
+        'form.email.ph': 'Email',
+        'form.phone.ph': 'Phone',
+        'form.subject.ph': 'Subject',
+        'form.message.ph': 'Your message',
+        'form.submit': 'Send my message',
+        'form.success': 'Your message was sent successfully!',
+        'form.error': '',
+
+        'footer.copy': '© 2025 Finexcorp. All rights reserved.',
+        'footer.contact': 'Contact',
+        'footer.legal': 'Legal notices'
       }
-      e.preventDefault();
-      document.body.classList.remove("loaded");
-      document.body.classList.add("fade-out");
-      setTimeout(() => window.location.href = href, 400);
-    });
-  });
-</script>
-<script src="transition.js"></script>
+    };
 
+    // Helpers i18n
+    const setHtmlLang = (lang) => document.documentElement.setAttribute('lang', lang);
 
+    const applyTranslations = (lang) => {
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS.fr;
 
+      // Text content
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
 
+      // Inner HTML (pour conserver <strong>, <br>, etc.)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
 
+      // Placeholders
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+      });
 
+      // ARIA labels
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.getAttribute('data-i18n-aria');
+        if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+      });
 
+      // Title & meta
+      const t = document.querySelector('title[data-i18n="meta.title"]');
+      if (t && dict['meta.title']) t.textContent = dict['meta.title'];
+      const m = document.querySelector('meta[name="description"][data-i18n="meta.description"]');
+      if (m && dict['meta.description']) m.setAttribute('content', dict['meta.description']);
+
+      // Boutons actifs
+      const allBtns = ['#lang-fr', '#lang-en', '#lang-fr-mobile', '#lang-en-mobile'].map(s => document.querySelector(s)).filter(Boolean);
+      allBtns.forEach(b => b.classList.remove('bg-finBleufonce','text-white'));
+      (lang === 'fr' ? ['#lang-fr','#lang-fr-mobile'] : ['#lang-en','#lang-en-mobile'])
+        .map(s => document.querySelector(s)).filter(Boolean)
+        .forEach(b => b.classList.add('bg-finBleufonce','text-white'));
+
+      setHtmlLang(lang);
+      localStorage.setItem('finex_lang', lang);
+    };
+
+    // Init
+    const initLang = () => {
+      const saved = localStorage.getItem('finex_lang');
+      const browser = (navigator.language || 'fr').slice(0,2);
+      const lang = saved || (browser === 'en' ? 'en' : 'fr');
+      applyTranslations(lang);
+    };
+
+    const onReady = () => {
+      [["#lang-fr","fr"],["#lang-en","en"],["#lang-fr-mobile","fr"],["#lang-en-mobile","en"]].forEach(([sel, code]) => {
+        const btn = document.querySelector(sel);
+        if (btn) btn.addEventListener('click', () => applyTranslations(code));
+      });
+      initLang();
+    };
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', onReady);
+    else onReady();
+  </script>
 </body>
 </html>

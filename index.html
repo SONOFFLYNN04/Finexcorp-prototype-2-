@@ -3,121 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finexcorp - Solutions de financement</title>
-  <meta name="description" content="Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.">
+  <title data-i18n="meta.title">Finexcorp - Solutions de financement</title>
+  <meta name="description" data-i18n="meta.description" content="Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.">
   <link rel="stylesheet" href="./dist/output.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/faivcon.png" type="image/png">
 
 
-<!--Hamburger Menu -->
+  <!--Underline-->
+  <style>
+    .underline:hover {
+      text-decoration-color: #D4AF37;
+      text-decoration-thickness: 3px;
+      text-decoration: underline;
+      border-bottom: #D4AF37 2px solid;
+      box-shadow: 0 1px 0 #D4AF37;
+    }
+    .underline-hover::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: #D4AF37; /* finGold */
+      transition: width 0.3s ease;
+    }
+    .underline-hover:hover::after { width: 100%; }
+  </style>
 
+  <!--Effet de lumière sur les boutons-->
+  <style>
+    button, a { position: relative; overflow: hidden; }
+    button::before, a::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255,255,255,0.2);
+      transform: rotate(25deg) translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    button:hover::before, a:hover::before { transform: rotate(25deg) translateX(100%); }
+  </style>
 
-
-
-
-
-
-
-<!--Underline-->
-<style>
-  
-  .underline:hover {
-    text-decoration-color: #D4AF37; /* Couleur de l'underline au survol */
-    text-decoration-thickness: 3px; /* Épaisseur de l'underline au survol */
-    text-decoration: underline;
-    border-bottom: #D4AF37 2px solid; /* Bordure en bas */
-    box-shadow: 0 1px 0 #D4AF37;
-  }
-
-  .underline-hover::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -3px;
-  left: 0;
-  background-color: #D4AF37; /* couleur finGold */
-  transition: width 0.3s ease;
-}
-
-.underline-hover:hover::after {
-  width: 100%;
-}
-</style>
-
-
-    <!--Effet de lumière sur les boutons-->
-    <style> button, a {
-  position: relative;
-  overflow: hidden;
-}
-button::before, a::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255,255,255,0.2);
-  transform: rotate(25deg) translateX(-100%);
-  transition: transform 0.5s ease;
-}
-button:hover::before, a:hover::before {
-  transform: rotate(25deg) translateX(100%);
-}
-</style>
-
-<style>
-  body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  body.loaded {
-    opacity: 1;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-</style>
-<style>
-  body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  body.loaded {
-    opacity: 1;
-  }
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-  }
-</style>
-
-
+  <style>
+    body { opacity: 0; transition: opacity 0.5s ease-in-out; }
+    body.loaded { opacity: 1; }
+    .fade-out { opacity: 0; transition: opacity 0.4s ease-in-out; }
+  </style>
 </head>
-<body class=" font-sans bg-white text-gray-800">
+<body class="font-sans bg-white text-gray-800">
   <!-- Navbar -->
   <nav class="relative container border-b border-finGold mx-auto py-2 font-serif ">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <div class="">
+      <div>
         <a href="index.html"><img src="img/zelogo.png" class="max-h-26 w-[200px]" alt="Logo Finexcorp"/></a>
       </div>
       <!-- Menu -->
-      <div class="hidden md:flex space-x-12">
-        <a href="L'affacturage.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">L'affacturage</a>
-        <a href="PourquoiFinexcorp.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">Qui est Finexcorp ?</a>
-        <a href="nossServices.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition">Nos Services</a>
-
+      <div class="hidden md:flex items-center space-x-6">
+        <div class="hidden md:flex space-x-12">
+          <a href="L'affacturage.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.affacturage">L'affacturage</a>
+          <a href="PourquoiFinexcorp.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.about">Qui est Finexcorp ?</a>
+          <a href="nossServices.html" class="text-finBleufonce text-2xl hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.services">Nos Services</a>
+        </div>
+        <!-- Lang Switcher (desktop) -->
+        <div class="hidden md:flex items-center gap-2 ml-6">
+          <button id="lang-fr" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce hover:bg-finBleufonce hover:text-white transition" aria-label="Français">FR</button>
+          <button id="lang-en" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce hover:bg-finBleufonce hover:text-white transition" aria-label="English">EN</button>
+        </div>
       </div>
       <!-- CTA -->
-      <a href="contact.html" class="hidden md:block px-4 p-2  text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50">
-        Contactez-nous
-      </a>
+      <a href="contact.html" class="hidden md:block px-4 p-2 text-finGold bg-finBleufonce rounded-full text-2xl transition hover:bg-finGold hover:text-finBleufonce shadow-lg shadow-yellow-500/50" data-i18n="nav.contact">Contactez-nous</a>
       <!-- Hamburger -->
-      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none" aria-label="Menu">
         <span class="hamburger-top"></span>
         <span class="hamburger-middle"></span>
         <span class="hamburger-bottom"></span>
@@ -126,12 +89,15 @@ button:hover::before, a:hover::before {
     <!-- Mobile Menu -->
     <div class="md:hidden">
       <div id="menu" class="absolute hidden flex-col items-center self-end py-3 mt-10 space-y-6 font-bold bg-paynesTrespale left-6 right-6 drop-shadow-md">
-        <a href="index.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Accueil</a>
-        <a href="L'affacturage.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Affacturage</a>
-        <a href="PourquoiFinexcorp.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Qui est Finexcorp ?</a>
-        <a href="nossServices.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition">Nos Services</a>
-        
-
+        <a href="index.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.home">Accueil</a>
+        <a href="L'affacturage.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.affacturage">Affacturage</a>
+        <a href="PourquoiFinexcorp.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.about">Qui est Finexcorp ?</a>
+        <a href="nossServices.html" class="hover:text-finGold border-b border-transparent hover:border-finGold transition" data-i18n="nav.services">Nos Services</a>
+        <!-- Lang Switcher (mobile) -->
+        <div class="flex justify-center gap-3 mt-2">
+          <button id="lang-fr-mobile" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce">FR</button>
+          <button id="lang-en-mobile" class="px-3 py-1 rounded-full border border-finBleufonce text-finBleufonce">EN</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -139,13 +105,11 @@ button:hover::before, a:hover::before {
   <!-- Hero -->
   <section id="hero" class="border-b border-finGold" data-aos="fade-down">
     <div class="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto pt-6 pb-16">
-
       <div class="flex flex-col space-y-6 md:w-1/2 text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-serif text-finGold">Financez vos actifs avec confiance</h1>
-        <p class="text-finBleufonce text-2xl">Depuis plus de 20 ans, Finexcorp accompagne les entreprises québécoises avec des solutions de financement rapides et adaptées.</p>
+        <h1 class="text-4xl md:text-5xl font-serif text-finGold" data-i18n="hero.h1">Financez vos actifs avec confiance</h1>
+        <p class="text-finBleufonce text-2xl" data-i18n="hero.p">Depuis plus de 20 ans, Finexcorp accompagne les entreprises québécoises avec des solutions de financement rapides et adaptées.</p>
         <div class="mt-10 flex justify-center md:justify-start">
-          <a href="contact.html" class="p-3 px-4 text-finGold bg-finBleufonce rounded-full transition hover:bg-finGold mx-
-           hover:text-finBleufonce shadow-lg shadow-yellow-500/50">En apprendre plus</a>
+          <a href="contact.html" class="p-3 px-4 text-finGold bg-finBleufonce rounded-full transition hover:bg-finGold mx- hover:text-finBleufonce shadow-lg shadow-yellow-500/50" data-i18n="hero.cta">En apprendre plus</a>
         </div>
       </div>
       <div class="md:w-1/2" data-aos="fade-up-right">
@@ -158,103 +122,94 @@ button:hover::before, a:hover::before {
   <section id="features" class="pb-12 py-16" data-aos="fade-left">
     <div class="container flex flex-col px-4 mx-auto space-y-12 md:space-y-0 md:flex-row">
       <div class="flex flex-col space-y-6 md:w-1/2">
-        <h2 class="text-4xl font-serif text-finBleufonce">Ce qui nous différencie</h2>
-        <p class="text-paynesGray">Finexcorp est une des seule entreprise d’affacturage privée, non-bancaire, non-institutionnelle d’envergure au Québec pouvant accompagner des clients aux niveaux régional, national et international.</p>
-                <div class="mt-8 flex justify-center">
-  <a href="PourquoiFinexcorp.html"
-     class="relative px-8 py-3 bg-gradient-to-r from-finBleufonce to-finGold text-white rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition transform duration-300">
-     <span class="flex items-center space-x-2">
-        <span>Nous connaître</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-     </span>
-  </a>
-</div>
+        <h2 class="text-4xl font-serif text-finBleufonce" data-i18n="features.title">Ce qui nous différencie</h2>
+        <p class="text-paynesGray" data-i18n="features.lead">Finexcorp est une des seule entreprise d’affacturage privée, non-bancaire, non-institutionnelle d’envergure au Québec pouvant accompagner des clients aux niveaux régional, national et international.</p>
+        <div class="mt-8 flex justify-center">
+          <a href="PourquoiFinexcorp.html" class="relative px-8 py-3 bg-gradient-to-r from-finBleufonce to-finGold text-white rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition transform duration-300" data-i18n="features.knowUs">
+            <span class="flex items-center space-x-2">
+              <span>Nous connaître</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div class="flex flex-col space-y-8 md:w-1/2">
-        <!-- Item -->
+        <!-- Item 1 -->
         <div class="flex space-x-4 items-start">
           <div class="px-4 py-2 text-finGold bg-finBleufonce rounded-full">01</div>
           <div>
-            <h3 class="text-xl font-bold  text-finBleufonce">Notre relation avec nos clients</h3>
-            <p class="text-finBleufonce text-base">Nous personnalisons chaque partenariat afin d’assurer la croissance et la stabilité de nos clients, qui deviennent de véritables partenaires d’affaires.</p>
+            <h3 class="text-xl font-bold text-finBleufonce" data-i18n="features.item1.title">Notre relation avec nos clients</h3>
+            <p class="text-finBleufonce text-base" data-i18n="features.item1.p">Nous personnalisons chaque partenariat afin d’assurer la croissance et la stabilité de nos clients, qui deviennent de véritables partenaires d’affaires.</p>
           </div>
         </div>
-        <!-- Item -->
+        <!-- Item 2 -->
         <div class="flex space-x-4 items-start">
           <div class="px-4 py-2 text-finGold bg-finBleufonce rounded-full">02</div>
           <div>
-            <h3 class="text-xl font-bold text-finBleufonce">Développement des affaires</h3>
-            <p class="text-finBleufonce text-base">Nous travaillons avec des partenaires qui partagent notre vision et souhaitons leur offrir des solutions de financement performantes.</p>
+            <h3 class="text-xl font-bold text-finBleufonce" data-i18n="features.item2.title">Développement des affaires</h3>
+            <p class="text-finBleufonce text-base" data-i18n="features.item2.p">Nous travaillons avec des partenaires qui partagent notre vision et souhaitons leur offrir des solutions de financement performantes.</p>
           </div>
         </div>
-        <!-- Item -->
+        <!-- Item 3 -->
         <div class="flex space-x-4 items-start">
           <div class="px-4 py-2 text-finGold bg-finBleufonce rounded-full">03</div>
           <div>
-            <h3 class="text-xl font-bold text-finBleufonce">Notre mission</h3>
-            <p class="text-finBleufonce text-lg">Fournir rapidement aux entreprises des outils de financement sur actifs aux meilleurs taux qui s’adaptent à leurs besoins spécifiques.</p>
+            <h3 class="text-xl font-bold text-finBleufonce" data-i18n="features.item3.title">Notre mission</h3>
+            <p class="text-finBleufonce text-lg" data-i18n="features.item3.p">Fournir rapidement aux entreprises des outils de financement sur actifs aux meilleurs taux qui s’adaptent à leurs besoins spécifiques.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  
-
-  
-
   <!-- FAQ (accordion) -->
   <section id="FAQ" class="bg-gradient-to-b from-white via-finBleupale to-finBleufonce pt-12 py-16" data-aos="fade-left">
     <div class="max-w-6xl px-5 mx-auto text-center">
-      <h2 class="text-4xl font-serif text-finBleufonce">Quelques questions fréquentes</h2>
+      <h2 class="text-4xl font-serif text-finBleufonce" data-i18n="faq.title">Quelques questions fréquentes</h2>
       <div class="mt-12 space-y-4">
         <div class="bg-white shadow rounded-lg p-4">
-          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce">Combien de temps pour mettre en place un financement Finexcorp ? <span>+</span></button>
-          <p class="faq-content hidden text-paynesGray mt-2">Un financement Finexcorp peut être mis en place entre 2 à 6 jours, dépendamment de la complexité et spécificité du dossier.</p>
+          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce" data-i18n="faq.q1">Combien de temps pour mettre en place un financement Finexcorp ? <span>+</span></button>
+          <p class="faq-content hidden text-paynesGray mt-2" data-i18n="faq.a1">Un financement Finexcorp peut être mis en place entre 2 à 6 jours, dépendamment de la complexité et spécificité du dossier.</p>
         </div>
         <div class="bg-white shadow rounded-lg p-4">
-          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce">Qui prend les risques de non-paiement des clients ? <span>+</span></button>
-          <p class="faq-content hidden text-paynesGray mt-2">Avec l’affacturage, le client assume le risque de non-paiement des créances cédées.</p>
+          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce" data-i18n="faq.q2">Qui prend les risques de non-paiement des clients ? <span>+</span></button>
+          <p class="faq-content hidden text-paynesGray mt-2" data-i18n="faq.a2">Avec l’affacturage, le client assume le risque de non-paiement des créances cédées.</p>
         </div>
         <div class="bg-white shadow rounded-lg p-4">
-          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce">Pourquoi avoir recours à l’affacturage ? <span>+</span></button>
-          <p class="faq-content hidden text-paynesGray mt-2">L’affacturage améliore rapidement votre trésorerie en transformant vos créances en liquidités immédiates.</p>
+          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce" data-i18n="faq.q3">Pourquoi avoir recours à l’affacturage ? <span>+</span></button>
+          <p class="faq-content hidden text-paynesGray mt-2" data-i18n="faq.a3">L’affacturage améliore rapidement votre trésorerie en transformant vos créances en liquidités immédiates.</p>
         </div>
 
+        <div class="bg-white shadow rounded-lg p-4">
+          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce" data-i18n="faq.q4">
+            À qui s'adresse l'affacturage Finexcorp ?
+            <span>+</span>
+          </button>
+          <div class="faq-content hidden mt-2 text-paynesGray text-left space-y-2" data-i18n-html="faq.a4Html">
+            <p>L’affacturage Finexcorp s’adresse à toutes les entreprises, peu importe leur domaine ou leur étape de développement :</p>
+            <p><b>- Démarrage :</b> Compense le manque de capitaux ou de crédit;</p>
+            <p><b>- Évolution :</b> Libère des tâches administratives et complète le financement bancaire;</p>
+            <p><b>- Croissance :</b> Soutient le développement en débloquant des liquidités;</p>
+            <p><b>- Restructuration :</b> Accompagne les entreprises en réorganisation;</p>
+          </div>
+        </div>
 
         <div class="bg-white shadow rounded-lg p-4">
-  <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce">
-    À qui s'adresse l'affacturage Finexcorp ?
-    <span>+</span>
-  </button>
-  <div class="faq-content hidden mt-2 text-paynesGray text-left space-y-2">
-    <p>L’affacturage Finexcorp s’adresse à toutes les entreprises, peu importe leur domaine ou leur étape de développement :</p>
-    <p><b>- Démarrage :</b> Compense le manque de capitaux ou de crédit;</p>
-    <p><b>- Évolution :</b> Libère des tâches administratives et complète le financement bancaire;</p>
-    <p><b>- Croissance :</b> Soutient le développement en débloquant des liquidités;</p>
-    <p><b>- Restructuration :</b> Accompagne les entreprises en réorganisation;</p>
-  </div>
-</div>
-
-
-<div class="bg-white shadow rounded-lg p-4">
-  <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce">
-    Combien coûte l'affacturage Finexcorp ?
-    <span>+</span>
-  </button>
-  <div class="faq-content hidden mt-2 text-paynesGray text-left space-y-2">
-    <p>Le coût de l’affacturage Finexcorp se divise en deux frais d’escomptes: le frais d’escompte initial et le frais d’escompte variable. Le calcul de ces frais d’escomptes varie en fonction de cinq principaux critères :
-</p>
-    <p>- Le <b>volume</b> mensuel des créances présentées en dollars;</p>
-    <p>- Le <b>nombre</b> total des factures présentées de façon mensuelle;</p>
-    <p>- Le <b>type</b> et la qualité de vos clients;</p>
-    <p>- Le <b>délai</b> moyen des habitudes de paiements de vos clients;</p>
-    <p>- Les <b>mauvaises</b> créances.</p>
-  </div>
-</div>
-
+          <button class="faq-toggle w-full flex justify-between items-center text-left font-semibold text-finBleufonce" data-i18n="faq.q5">
+            Combien coûte l'affacturage Finexcorp ?
+            <span>+</span>
+          </button>
+          <div class="faq-content hidden mt-2 text-paynesGray text-left space-y-2" data-i18n-html="faq.a5Html">
+            <p>Le coût de l’affacturage Finexcorp se divise en deux frais d’escomptes: le frais d’escompte initial et le frais d’escompte variable. Le calcul de ces frais d’escomptes varie en fonction de cinq principaux critères :</p>
+            <p>- Le <b>volume</b> mensuel des créances présentées en dollars;</p>
+            <p>- Le <b>nombre</b> total des factures présentées de façon mensuelle;</p>
+            <p>- Le <b>type</b> et la qualité de vos clients;</p>
+            <p>- Le <b>délai</b> moyen des habitudes de paiements de vos clients;</p>
+            <p>- Les <b>mauvaises</b> créances.</p>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -263,94 +218,245 @@ button:hover::before, a:hover::before {
   <!-- CTA -->
   <div class="bg-gradient-to-b from-finBleufonce to-white py-12">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-serif text-finBleufonce mb-6">Prêt à transformer votre trésorerie ?</h2>
-      <p class="text-2xl text-finBleufonce mb-6"><a href="contact.html" class="relative text-finBleufonce font-bold transition duration-300 
-          hover:text-finGold after:content-[''] after:absolute after:w-0 after:h-[2px] 
-          after:bg-finGold after:left-0 after:-bottom-1 after:transition-all 
-          after:duration-300 hover:after:w-full underline-hover ">Contactez-nous</a> dès aujourd'hui.</p>
-
+      <h2 class="text-3xl font-serif text-finBleufonce mb-6" data-i18n="cta.title">Prêt à transformer votre trésorerie ?</h2>
+      <p class="text-2xl text-finBleufonce mb-6">
+        <a href="contact.html" class="relative text-finBleufonce font-bold transition duration-300 hover:text-finGold after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-finGold after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full underline-hover" data-i18n="cta.link">Contactez-nous</a>
+        <span data-i18n="cta.afterLink">&nbsp;dès aujourd'hui.</span>
+      </p>
     </div>
   </div>
-
 
   <!-- Footer -->
   <footer class="bg-white text-finGold py-8">
-  <div class="container mx-auto text-center">
-    <img src="img/zelogo.png" alt="Logo Finexcorp" class="max-h-26 w-[200px] mb-4 mx-auto">
-    <p class="text-sm text-gray-300">&copy; 2025 Finexcorp. Tous droits réservés.</p>
-    <div class="flex justify-center space-x-6 mt-4">
-      <a href="contact.html" class="hover:text-finGold transition">Contact</a>
-      <a href="mentionlegale.html" class="hover:text-finGold transition">Mentions légales</a>
-    </div>
-  </div>
-</footer>
-
-      
-      
+    <div class="container mx-auto text-center">
+      <img src="img/zelogo.png" alt="Logo Finexcorp" class="max-h-26 w-[200px] mb-4 mx-auto">
+      <p class="text-sm text-gray-300" data-i18n="footer.copy">© 2025 Finexcorp. Tous droits réservés.</p>
+      <div class="flex justify-center space-x-6 mt-4">
+        <a href="contact.html" class="hover:text-finGold transition" data-i18n="footer.contact">Contact</a>
+        <a href="mentionlegale.html" class="hover:text-finGold transition" data-i18n="footer.legal">Mentions légales</a>
+      </div>
     </div>
   </footer>
 
-
-
-
-  
-
-
-  
-
-
-
-<!--Accordéon FAQ-->
+  <!--Accordéon FAQ-->
   <script>
     document.querySelectorAll('.faq-toggle').forEach(button => {
       button.addEventListener('click', () => {
         const content = button.nextElementSibling;
+        if (!content) return;
         content.classList.toggle('hidden');
-        button.querySelector('span').textContent = content.classList.contains('hidden') ? '+' : '-';
+        const span = button.querySelector('span');
+        if (span) span.textContent = content.classList.contains('hidden') ? '+' : '-';
       });
     });
   </script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init({
-      
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true, 
-    });
+    AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
   </script>
 
+  <script>
+    // Fade-in au chargement
+    document.addEventListener("DOMContentLoaded", () => { document.body.classList.add("loaded"); });
 
-<script>
-  // Fade-in au chargement
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("loaded");
-  });
-
-  // Fade-out avant de quitter
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      // Si pas de href, ou ancre (#), ou mailto, ou la même page => on ne fait rien
-      if (!href || href.startsWith('#') || href.startsWith('mailto') || href === window.location.pathname.split('/').pop()) {
-        return;
-      }
-      e.preventDefault();
-      document.body.classList.remove("loaded");
-      document.body.classList.add("fade-out");
-      setTimeout(() => window.location.href = href, 400);
+    // Fade-out avant de quitter
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto') || href === window.location.pathname.split('/').pop()) {
+          return;
+        }
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        document.body.classList.add("fade-out");
+        setTimeout(() => window.location.href = href, 400);
+      });
     });
-  });
-</script>
-<script src="transition.js"></script>
+  </script>
+  <script src="transition.js"></script>
 
+  <!-- i18n Lang Switcher Script -->
+  <script>
+    // Dictionnaires FR/EN pour cette page
+    const TRANSLATIONS = {
+      fr: {
+        "meta.title": "Finexcorp - Solutions de financement",
+        "meta.description": "Finexcorp - Solutions de financement sur actifs et affacturage au Québec. Obtenez des liquidités rapidement grâce à notre expertise.",
+        "nav.home": "Accueil",
+        "nav.affacturage": "L'affacturage",
+        "nav.about": "Qui est Finexcorp ?",
+        "nav.services": "Nos Services",
+        "nav.contact": "Contactez-nous",
+        "hero.h1": "Financez vos actifs avec confiance",
+        "hero.p": "Depuis plus de 20 ans, Finexcorp accompagne les entreprises québécoises avec des solutions de financement rapides et adaptées.",
+        "hero.cta": "En apprendre plus",
+        "features.title": "Ce qui nous différencie",
+        "features.lead": "Finexcorp est une des seule entreprise d’affacturage privée, non-bancaire, non-institutionnelle d’envergure au Québec pouvant accompagner des clients aux niveaux régional, national et international.",
+        "features.knowUs": "Nous connaître",
+        "features.item1.title": "Notre relation avec nos clients",
+        "features.item1.p": "Nous personnalisons chaque partenariat afin d’assurer la croissance et la stabilité de nos clients, qui deviennent de véritables partenaires d’affaires.",
+        "features.item2.title": "Développement des affaires",
+        "features.item2.p": "Nous travaillons avec des partenaires qui partagent notre vision et souhaitons leur offrir des solutions de financement performantes.",
+        "features.item3.title": "Notre mission",
+        "features.item3.p": "Fournir rapidement aux entreprises des outils de financement sur actifs aux meilleurs taux qui s’adaptent à leurs besoins spécifiques.",
+        "faq.title": "Quelques questions fréquentes",
+        "faq.q1": "Combien de temps pour mettre en place un financement Finexcorp ?",
+        "faq.a1": "Un financement Finexcorp peut être mis en place entre 2 à 6 jours, dépendamment de la complexité et spécificité du dossier.",
+        "faq.q2": "Qui prend les risques de non-paiement des clients ?",
+        "faq.a2": "Avec l’affacturage, le client assume le risque de non-paiement des créances cédées.",
+        "faq.q3": "Pourquoi avoir recours à l’affacturage ?",
+        "faq.a3": "L’affacturage améliore rapidement votre trésorerie en transformant vos créances en liquidités immédiates.",
+        "faq.q4": "À qui s'adresse l'affacturage Finexcorp ?",
+        "faq.a4Html": `
+          <p>L’affacturage Finexcorp s’adresse à toutes les entreprises, peu importe leur domaine ou leur étape de développement :</p>
+          <p><b>- Démarrage :</b> Compense le manque de capitaux ou de crédit;</p>
+          <p><b>- Évolution :</b> Libère des tâches administratives et complète le financement bancaire;</p>
+          <p><b>- Croissance :</b> Soutient le développement en débloquant des liquidités;</p>
+          <p><b>- Restructuration :</b> Accompagne les entreprises en réorganisation;</p>
+        `,
+        "faq.q5": "Combien coûte l'affacturage Finexcorp ?",
+        "faq.a5Html": `
+          <p>Le coût de l’affacturage Finexcorp se divise en deux frais d’escomptes: le frais d’escompte initial et le frais d’escompte variable. Le calcul de ces frais d’escomptes varie en fonction de cinq principaux critères :</p>
+          <p>- Le <b>volume</b> mensuel des créances présentées en dollars;</p>
+          <p>- Le <b>nombre</b> total des factures présentées de façon mensuelle;</p>
+          <p>- Le <b>type</b> et la qualité de vos clients;</p>
+          <p>- Le <b>délai</b> moyen des habitudes de paiements de vos clients;</p>
+          <p>- Les <b>mauvaises</b> créances.</p>
+        `,
+        "cta.title": "Prêt à transformer votre trésorerie ?",
+        "cta.link": "Contactez-nous",
+        "cta.afterLink": "dès aujourd'hui.",
+        "footer.copy": "© 2025 Finexcorp. Tous droits réservés.",
+        "footer.contact": "Contact",
+        "footer.legal": "Mentions légales"
+      },
+      en: {
+        "meta.title": "Finexcorp - Asset-based financing solutions",
+        "meta.description": "Finexcorp - Asset-based lending and factoring in Quebec. Get liquidity fast thanks to our expertise.",
+        "nav.home": "Home",
+        "nav.affacturage": "Factoring",
+        "nav.about": "Who is Finexcorp?",
+        "nav.services": "Our Services",
+        "nav.contact": "Contact us",
+        "hero.h1": "Finance your assets with confidence",
+        "hero.p": "For over 20 years, Finexcorp has supported Quebec businesses with fast, tailored financing solutions.",
+        "hero.cta": "Learn more",
+        "features.title": "What sets us apart",
+        "features.lead": "Finexcorp is one of the only sizable private, non‑bank, non‑institutional factoring companies in Quebec able to support clients regionally, nationally and internationally.",
+        "features.knowUs": "Get to know us",
+        "features.item1.title": "Our relationship with clients",
+        "features.item1.p": "We tailor each partnership to ensure the growth and stability of our clients, who become true business partners.",
+        "features.item2.title": "Business development",
+        "features.item2.p": "We work with partners who share our vision and aim to provide them with high‑performance financing solutions.",
+        "features.item3.title": "Our mission",
+        "features.item3.p": "Quickly provide companies with asset‑based financing tools at the best rates, adapted to their specific needs.",
+        "faq.title": "Frequently asked questions",
+        "faq.q1": "How long does it take to set up Finexcorp financing?",
+        "faq.a1": "Finexcorp financing can be set up within 2 to 6 days, depending on the complexity and specifics of the file.",
+        "faq.q2": "Who bears the risk of non‑payment?",
+        "faq.a2": "With factoring, the client assumes the risk of non‑payment of the assigned receivables.",
+        "faq.q3": "Why use factoring?",
+        "faq.a3": "Factoring quickly improves your cash flow by turning receivables into immediate liquidity.",
+        "faq.q4": "Who is Finexcorp factoring for?",
+        "faq.a4Html": `
+          <p>Finexcorp factoring is for all companies, regardless of industry or stage of development:</p>
+          <p><b>- Startup:</b> Offsets lack of capital or credit;</p>
+          <p><b>- Expansion:</b> Frees administrative tasks and complements bank financing;</p>
+          <p><b>- Growth:</b> Supports development by unlocking liquidity;</p>
+          <p><b>- Restructuring:</b> Assists companies in reorganization;</p>
+        `,
+        "faq.q5": "How much does Finexcorp factoring cost?",
+        "faq.a5Html": `
+          <p>The cost of Finexcorp factoring includes two discount fees: the initial discount fee and the variable discount fee. The calculation varies based on five main criteria:</p>
+          <p>- Monthly <b>volume</b> of receivables submitted (in dollars);</p>
+          <p>- Total <b>number</b> of invoices submitted monthly;</p>
+          <p>- <b>Type</b> and quality of your customers;</p>
+          <p>- Average <b>payment terms</b> of your customers;</p>
+          <p>- <b>Bad</b> debt.</p>
+        `,
+        "cta.title": "Ready to transform your cash flow?",
+        "cta.link": "Contact us",
+        "cta.afterLink": "today.",
+        "footer.copy": "© 2025 Finexcorp. All rights reserved.",
+        "footer.contact": "Contact",
+        "footer.legal": "Legal notices"
+      }
+    };
 
+    const setHtmlLang = (lang) => { document.documentElement.setAttribute('lang', lang); };
 
+    const applyTranslations = (lang) => {
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS.fr;
 
+      // Text nodes (data-i18n)
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          // Preserve embedded <span> +/- in FAQ buttons
+          if (el.tagName.toLowerCase() === 'button' && el.querySelector('span')) {
+            const span = el.querySelector('span');
+            const symbol = span.textContent.trim();
+            el.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = ''; });
+            el.insertBefore(document.createTextNode(dict[key] + ' '), span);
+          } else {
+            el.textContent = dict[key];
+          }
+        }
+      });
 
+      // HTML blocks (data-i18n-html)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
 
+      // Title & meta description if marked
+      const titleEl = document.querySelector('title[data-i18n="meta.title"]');
+      if (titleEl && dict['meta.title']) titleEl.textContent = dict['meta.title'];
 
+      const metaDescEl = document.querySelector('meta[name="description"][data-i18n="meta.description"]');
+      if (metaDescEl && dict['meta.description']) metaDescEl.setAttribute('content', dict['meta.description']);
+
+      // Update html lang
+      setHtmlLang(lang);
+
+      // Persist choice
+      localStorage.setItem('finex_lang', lang);
+
+      // Active button styling
+      const allBtns = ['#lang-fr', '#lang-en', '#lang-fr-mobile', '#lang-en-mobile']
+        .map(sel => document.querySelector(sel))
+        .filter(Boolean);
+      allBtns.forEach(b => b.classList.remove('bg-finBleufonce','text-white'));
+      const activeSelectors = lang === 'fr' ? ['#lang-fr','#lang-fr-mobile'] : ['#lang-en','#lang-en-mobile'];
+      activeSelectors.map(sel => document.querySelector(sel))
+        .filter(Boolean)
+        .forEach(b => b.classList.add('bg-finBleufonce','text-white'));
+    };
+
+    const initLang = () => {
+      const saved = localStorage.getItem('finex_lang');
+      const browser = (navigator.language || 'fr').slice(0,2);
+      const lang = saved || (browser === 'en' ? 'en' : 'fr');
+      applyTranslations(lang);
+    };
+
+    const onReady = () => {
+      [["#lang-fr","fr"],["#lang-en","en"],["#lang-fr-mobile","fr"],["#lang-en-mobile","en"]].forEach(([sel, code]) => {
+        const btn = document.querySelector(sel);
+        if (btn) btn.addEventListener('click', () => applyTranslations(code));
+      });
+      initLang();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', onReady);
+    } else {
+      onReady();
+    }
+  </script>
 </body>
 </html>
+
 
